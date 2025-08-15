@@ -1,12 +1,15 @@
-full_title: Fifth ACM/IEEE Workshop on Hot Topics in Web Systems and Technologies
-short_title: Hotweb 2017
-email: hotweb2017@gmail.com
+full_title: Journée Étudiante Quantact 2025
+short_title: Journée Étudiante Quantact
+email: Iro.Rene.Kouarfate@USherbrooke.ca
 description: > # this means to ignore newlines until "baseurl:"
-  HotWeb is a forum bringing together researchers and practitioners interested 
-  in the design, implementation, and evaluation of Internet systems and applications. 
-location: San Jose, CA, 2017
-date: October 14, 2017
-logo_path: ./assets/images/logo2017.jpg
+  La Journée Étudiante Quantact présente les travaux de recherche des étudiants affiliés au réseau Quantact.
+  Nos objectifs :
+    Diffuser la recherche étudiante Quantact
+    Créer des liens entre les six programmes Quantact
+    Promouvoir la recherche auprès des étudiants de premier cycle
+location: Université Laval, Québec, 2025
+date: Vendredi 3 octobre 2025
+logo_path: ./assets/images/logo_jeq.png
 slideshow:
   - id: 0
     image_path: ./assets/images/slideshow/image0.jpg
