@@ -8,7 +8,7 @@ description: > # this means to ignore newlines until "baseurl:"
     Créer des liens entre les six programmes Quantact
     Promouvoir la recherche auprès des étudiants de premier cycle
 location: Université Laval, Québec, 2025
-date: Vendredi 3 octobre 2025
+date: 3 octobre 2025
 logo_path: ./assets/images/logo_jeq.png
 slideshow:
   - id: 0
@@ -54,11 +54,11 @@ navbar:
   - id: 2
     label: Call for Papers
     path: /cfp.html
-    visible: True
+    visible: False
   - id: 3
     label: Submission
     path: /submission.html
-    visible: True
+    visible: False
   - id: 4
     label: Programs
     path: /program.html
@@ -71,34 +71,18 @@ navbar:
     label: Registration
     path: /registration.html
     visible: True
-deadlines:
-  - date: 2017-7-6
-    timezone: 9PM PDT
-    text: Submission deadline (extended)
-    pass_due: False
-  - date: 2017-8-7
-    text: Notification of acceptance
-    pass_due: False
-  - date: 2017-8-17
-    text: Camera-ready copy due
-    pass_due: False
-  - date: 2017-10-14
-    text: Workshop
-    pass_due: False
 news:
-  - date: 2017-10-14
-    text: Workshop has been successfully held
-  - date: 2017-05-12
-    text: Submission site online
-  - date: 2017-03-08
-    text: Website online
+  - date: 2025-08-15
+    text: Site en ligne
+  - date: 2025-07-31
+    text: Formation du comité
 sponsors:
   - name: ACM
     logo_path: ./assets/images/sponsors/acm-logo.png
   - name: IEEE
     logo_path: ./assets/images/sponsors/ieee-logo.gif
 social_media:
-  facebook_link: https://www.facebook.com/hotwebseries/
+  facebook_link: 
   twitter_link:
 program_chair:
   - name: Qun Li
