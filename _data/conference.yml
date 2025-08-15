@@ -44,11 +44,11 @@ slideshow:
     photographer_link: https://www.flickr.com/photos/jmenard48/
 navbar:
   - id: 0
-    label: Home
+    label: Accueil
     path: /
     visible: True
   - id: 1
-    label: Organization
+    label: À propos de l'organisation
     path: /organization.html
     visible: True
   - id: 2
@@ -60,15 +60,15 @@ navbar:
     path: /submission.html
     visible: False
   - id: 4
-    label: Programs
+    label: Programme
     path: /program.html
     visible: True
   - id: 5
-    label: Venue
+    label: Trouver l'endroit
     path: /venue.html
     visible: True
   - id: 6
-    label: Registration
+    label: S'inscrire
     path: /registration.html
     visible: True
 news:
