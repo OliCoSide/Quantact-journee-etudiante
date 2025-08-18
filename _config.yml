@@ -31,3 +31,7 @@ exclude:
 timezone: America/Toronto
 google_analytics: UA-99357652-1
 
+# Useful defaults so every page has a lang
+defaults:
+  - scope: { path: "" }
+    values: { lang: fr }   # French default
