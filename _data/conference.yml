@@ -29,19 +29,19 @@ logo_path: ./assets/images/logo_jeq.png
 navbar:
   - id: 0
     label: { fr: "Accueil", en: "Home" }
-    path: ./index.html
+    path: /index.html
     visible: true
   - id: 3
     label: { fr: "Programme", en: "Program" }
-    path: ./program.html
+    path: /program.html
     visible: true
   - id: 4
     label: { fr: "Trouver l'endroit", en: "Venue" }
-    path: ./venue.html
+    path: /venue.html
     visible: true
   - id: 5
     label: { fr: "S'inscrire", en: "Register" }
-    path: ./registration.html
+    path: /registration.html
     visible: true
   - id: 6
     label: { fr: "EN", en: "FR" }
