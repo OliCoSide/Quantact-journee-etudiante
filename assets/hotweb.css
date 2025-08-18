@@ -137,11 +137,13 @@ footer {
 .navbar-inverse .navbar-nav  > .active { color: #5393c5 !important; }
 
 /* Neutralize Bootstrap blues/yellows inside the schedule only */
+.schedule-table thead th.bg-primary,
 .schedule-table .bg-primary {
   background: #e9ecef !important;   /* muted gray */
   color: #212529 !important;
   border-color: #d6d8db !important;
 }
+.schedule-table thead th.bg-warning,
 .schedule-table .bg-warning {
   background: #f6f6f2 !important;   /* soft off-white */
   color: #555 !important;
