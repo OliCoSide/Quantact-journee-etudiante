@@ -24,7 +24,7 @@ languages:
 
 default_language: fr
 
-logo_path: ./assets/images/logo_jeq.png
+logo_path: /assets/images/logo_jeq.png
 
 navbar:
   - id: 0
@@ -60,7 +60,7 @@ deadlines:
     text: Inscriptions ouvertes
 sponsors:
   - name: Quantact
-    logo_path: ./assets/images/sponsors/logo_quantact.png
+    logo_path: /assets/images/sponsors/logo_quantact.png
 social_media:
   facebook_link: 
   twitter_link:
