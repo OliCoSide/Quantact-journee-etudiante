@@ -50,61 +50,74 @@
 
           <ul class="navbar-nav mx-auto text-center">
             {% for nav in C.navbar %}
-              {% if nav.visible %}
+                {% if nav.visible %}
                 {% assign is_toggle = nav.class == "language-toggle" %}
-
-                {% comment %}
-                  Compute href for this item:
-                  - For EN pages, prefix '/en' to normal paths (except root '/')
-                  - For language toggle, compute the alternate URL (FR <-> EN)
-                {% endcomment %}
-
-                {% if is_toggle %}
-                  {% if lang == "fr" %}
-                    {% assign href = "/en" | append: page.url %}
-                  {% else %}
-                    {% assign href = page.url | replace_first: "/en", "" %}
-                    {% if href == "" %}{% assign href = "/" %}{% endif %}
-                  {% endif %}
-                {% else %}
-                  {% assign href = nav.path %}
-                  {% if lang == "en" %}
+                {% unless is_toggle %}
+                    {% assign href = nav.path %}
+                    {% if lang == "en" %}
                     {% if href == "/" %}
-                      {% assign href = "/en/" %}
+                        {% assign href = "/en/" %}
                     {% else %}
-                      {% assign href = "/en" | append: href %}
+                        {% assign href = "/en" | append: href %}
                     {% endif %}
-                  {% endif %}
+                    {% endif %}
+                    {% assign label = nav.label[lang] %}
+                    {% assign active = page.url == href %}
+                    <li class="nav-item{% if active %} active{% endif %}">
+                    <a class="nav-link m-1" href="{{ href }}">
+                        <strong>{{ label | escape }}</strong>{% if active %}<span class="sr-only">(current)</span>{% endif %}
+                    </a>
+                    </li>
+                {% endunless %}
+                {% endif %}
+            {% endfor %}
+            </ul>
+
+
+          <ul class="navbar-nav ml-auto align-items-center">
+            {%- comment -%} Language toggle as a pill button on the right {%- endcomment -%}
+            {% assign toggle = nil %}
+            {% for nav in C.navbar %}
+                {% if nav.class == "language-toggle" and nav.visible %}
+                {% assign toggle = nav %}
+                {% endif %}
+            {% endfor %}
+
+            {% if toggle %}
+                {% if lang == "fr" %}
+                {% assign toggle_href = "/en" | append: page.url %}
+                {% assign toggle_label = toggle.label[lang] %} {# shows "EN" on FR pages #}
+                {% else %}
+                {% assign toggle_href = page.url | replace_first: "/en", "" %}
+                {% if toggle_href == "" %}{% assign toggle_href = "/" %}{% endif %}
+                {% assign toggle_label = toggle.label[lang] %} {# shows "FR" on EN pages #}
                 {% endif %}
 
-                {% assign label = nav.label[lang] %}
-
-                {% assign active = page.url == href %}
-                <li class="nav-item{% if active %} active{% endif %}">
-                  <a class="nav-link m-1{% if is_toggle %} language-toggle{% endif %}" href="{{ href }}">
-                    <strong>{{ label | escape }}</strong>{% if active %}<span class="sr-only">(current)</span>{% endif %}
-                  </a>
-                </li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-
-          <ul class="navbar-nav ml-auto">
-            {% if C.social_media.facebook_link %}
-              <li class="nav-item">
-                <a class="nav-link" href="{{ C.social_media.facebook_link }}">
-                  <span class="fa-stack"><i class="fa fa-facebook-square fa-stack-1x"></i></span>
+                <li class="nav-item">
+                <a class="btn btn-outline-light btn-sm rounded-pill px-3 lang-toggle"
+                    href="{{ toggle_href }}" aria-label="Switch language">
+                    {{ toggle_label }}
                 </a>
-              </li>
+                </li>
+            {% endif %}
+
+            {# Social icons (if any) #}
+            {% if C.social_media.facebook_link %}
+                <li class="nav-item ml-2">
+                <a class="nav-link" href="{{ C.social_media.facebook_link }}">
+                    <span class="fa-stack"><i class="fa fa-facebook-square fa-stack-1x"></i></span>
+                </a>
+                </li>
             {% endif %}
             {% if C.social_media.twitter_link %}
-              <li class="nav-item">
+                <li class="nav-item">
                 <a class="nav-link" href="{{ C.social_media.twitter_link }}">
-                  <span class="fa-stack"><i class="fa fa-twitter-square fa-stack-1x"></i></span>
+                    <span class="fa-stack"><i class="fa fa-twitter-square fa-stack-1x"></i></span>
                 </a>
-              </li>
+                </li>
             {% endif %}
-          </ul>
+            </ul>
+
         </div>
       </nav>
     </div>

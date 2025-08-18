@@ -186,3 +186,14 @@ footer {
 .schedule-table h5, .schedule-table h6, .schedule-table p {
   margin-bottom: 0.25rem;
 }
+
+.lang-toggle {
+  line-height: 1.2;
+  border-width: 2px;
+  font-weight: 700;
+}
+.lang-toggle:hover,
+.lang-toggle:focus {
+  text-decoration: none;
+  filter: brightness(1.05);
+}
