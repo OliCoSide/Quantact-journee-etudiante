@@ -6,7 +6,9 @@
     <!-- conference info -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-5 col-xl-4 offset-xl-1">
       <div class="jumbotron" style="background-color: white; min-height: 300px; padding: 2.5rem;">
-        {% if C.logo_path %}<img class="img-fluid" src="{{ C.logo_path }}">{% endif %}
+        {% if C.logo_path %}
+        <img class="img-fluid" src="{{ C.logo_path | relative_url }}" alt="Logo">
+        {% endif %}
         <h5 class="text-center mt-0">{{ C.languages[lang].date }}</h5>
         <p class="text-center mb-0">{{ C.languages[lang].location }}</p>
       </div>
@@ -22,7 +24,7 @@
             {% else %}
               <div class="carousel-item">
             {% endif %}
-                <img class="img-fluid" src="{{ slide.image_path }}" alt="{{ slide.description }}">
+                <img class="img-fluid" src="{{ slide.image_path | relative_url }}" alt="{{ slide.description }}">
                 <div class="carousel-caption d-none d-md-block text-muted">
                   <p class="align-bottom">
                     {{ slide.description }}, by <a href="{{ slide.photographer_link }}">{{ slide.photographer_name }}</a>,

@@ -23,6 +23,10 @@ default_language: fr
 
 logo_path: /assets/images/logo_jeq.png
 
+slideshow:
+  - image_path: /assets/images/
+
+
 navbar:
   - id: 0
     label: { fr: "Accueil", en: "Home" }
@@ -69,7 +73,3 @@ program_chair:
     org: Université de Sherbrooke
     homepage: 
 
-# Useful defaults so every page has a lang
-defaults:
-  - scope: { path: "" }
-    values: { lang: fr }   # French default
