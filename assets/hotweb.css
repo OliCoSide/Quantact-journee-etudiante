@@ -188,12 +188,40 @@ footer {
 }
 
 .lang-toggle {
-  line-height: 1.2;
-  border-width: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  padding: 0.25rem 0.6rem;
   font-weight: 700;
+  font-size: 0.85rem;
+  background-color: transparent;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
 }
-.lang-toggle:hover,
-.lang-toggle:focus {
+
+/* both labels inside */
+.lang-toggle span {
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+/* inactive side */
+.lang-toggle span.inactive {
+  opacity: 0.6;
+}
+
+/* active side (filled pill) */
+.lang-toggle span.active {
+  background-color: #fff;
+  color: #000;
+}
+
+/* hover makes the whole pill slightly brighter */
+.lang-toggle:hover {
+  filter: brightness(1.1);
   text-decoration: none;
-  filter: brightness(1.05);
 }
+
