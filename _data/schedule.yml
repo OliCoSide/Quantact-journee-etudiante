@@ -35,7 +35,7 @@
   - startTime: "14:15"
     endTime: "15:00"
     title: "Bloc HEC: À déterminer"
-    speaker: "À déterminer"
+    speaker: "Étienne Bacon"
     chair: "À déterminer"
   - startTime: "15:00"
     endTime: "15:30"
@@ -46,4 +46,8 @@
     title: "Bloc U. Laval: Titre à venir"
     speaker: "Pertiny Wilfried Nkuize ketchiekmen"
     chair: "Olivier Côté"
+  - startTime: "16:15"
+    endTime: "18:00"
+    title: "Conclusion et 5à7"
+    type: "service"
     
