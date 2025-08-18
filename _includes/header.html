@@ -53,25 +53,20 @@
                 {% if nav.visible %}
                 {% assign is_toggle = nav.class == "language-toggle" %}
                 {% unless is_toggle %}
-                    {% assign href = nav.path %}
-                    {% if lang == "en" %}
-                    {% if href == "/" %}
-                        {% assign href = "/en/" %}
-                    {% else %}
-                        {% assign href = "/en" | append: href %}
-                    {% endif %}
-                    {% endif %}
+                    {% assign href = nav.path | relative_url %}
                     {% assign label = nav.label[lang] %}
-                    {% assign active = page.url == href %}
+                    {% assign cur = page.url | replace:'index.html','' %}
+                    {% assign active = cur == nav.path %}
                     <li class="nav-item{% if active %} active{% endif %}">
-                    <a class="nav-link m-1" href="{{ href }}">
-                        <strong>{{ label | escape }}</strong>{% if active %}<span class="sr-only">(current)</span>{% endif %}
+                    <a class="nav-link m-1" href="{{ href }}" {% if active %}aria-current="page"{% endif %}>
+                        <strong>{{ label | escape }}</strong>
                     </a>
                     </li>
                 {% endunless %}
                 {% endif %}
             {% endfor %}
             </ul>
+
 
 
           <ul class="navbar-nav ml-auto align-items-center">
