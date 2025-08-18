@@ -50,6 +50,23 @@
       if (v) el.setAttribute("src", v);
     });
 
+        // Update segmented FR|EN pill (active/inactive spans)
+    const pill = document.getElementById("langToggle");
+    if (pill) {
+    const spans = pill.querySelectorAll("span");
+    spans.forEach(s => s.classList.remove("active", "inactive"));
+    if (lang === "fr") {
+        // left FR active, right EN inactive
+        if (spans[0]) spans[0].classList.add("active");
+        if (spans[1]) spans[1].classList.add("inactive");
+    } else {
+        // left FR inactive, right EN active
+        if (spans[0]) spans[0].classList.add("inactive");
+        if (spans[1]) spans[1].classList.add("active");
+    }
+    }
+
+
     // Optional: swap placeholders if provided
     document.querySelectorAll("[data-ph-fr][data-ph-en]").forEach(el => {
       const v = el.getAttribute(`data-ph-${lang}`);
