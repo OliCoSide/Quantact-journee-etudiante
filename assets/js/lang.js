@@ -19,9 +19,14 @@
       document.documentElement.setAttribute("lang", lang);
     } catch (_) {}
 
-    // Toggle button shows the OTHER language
+    // Inside setLang(lang, pushUrl = true)
     const t = document.getElementById("langToggle");
-    if (t) t.textContent = lang === "fr" ? "EN" : "FR";
+    if (t) {
+    t.classList.toggle("fr", lang === "fr");
+    t.classList.toggle("en", lang === "en");
+    t.setAttribute("aria-label", lang === "fr" ? "Passer en anglais" : "Switch to French");
+    }
+
 
     // Keep ?lang= on internal links, skip toggle and pure hashes
     const q = new URLSearchParams(location.search);
@@ -81,14 +86,12 @@
     }
   }
 
-  // Click handler for the pill button
-  document.addEventListener("click", e => {
-    const t = e.target;
-    if (t && t.id === "langToggle") {
-      e.preventDefault();
-      setLang(curLang() === "fr" ? "en" : "fr");
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("#langToggle")) {
+        e.preventDefault();
+        setLang(curLang() === "fr" ? "en" : "fr");
     }
-  });
+    });
 
   // Initialize on load
   document.addEventListener("DOMContentLoaded", () => setLang(curLang(), false));
