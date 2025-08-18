@@ -78,36 +78,10 @@ social_media:
   facebook_link: 
   twitter_link:
 program_chair:
-  - name: Qun Li
-    org: College of William and Mary (USA)
-    homepage: http://www.cs.wm.edu/~liqun
-  - name: Songqing Chen
-    org: George Mason University (USA)
-    homepage: http://www.cs.gmu.edu/~sqchen/
-steering_committees:
-  - name: Azer Bestavros
-    org: Boston University (USA)
-    homepage: http://azer.bestavros.net/
-  - name: Songqing Chen
-    org: George Mason University (USA)
-    homepage: http://www.cs.gmu.edu/~sqchen/
-  - name: Fred Douglis
-    org: Dell EMC (USA)
-    homepage: http://www.douglis.org/fred/
-  - name: Arun Iyengar
-    org: IBM (USA)
-    homepage: http://researcher.watson.ibm.com/researcher/view.php?person=us-aruni
-  - name: Michael Rabinovich
-    org: Case Western Reserve University (USA)
-    homepage: http://engr.case.edu/rabinovich_michael/
-  - name: Pablo Rodriguez
-    org: Telefonica Research (Spain)
-    homepage: http://www.rodriguezrodriguez.com/
-  - name: Weisong Shi
-    org: Wayne State University (USA)
-    homepage: http://www.cs.wayne.edu/~weisong/
-webmaster:
-  - name: Shanhe Yi
-    org: College of William and Mary (USA)
-    homepage: http://www.cs.wm.edu/~syi
+  - name: Olivier Côté
+    org: Université de Sherbrooke
+    homepage: https://olicoside.github.io/
+  - name: Iro.Rene.Kouarfate@USherbrooke.ca
+    org: Université de Sherbrooke
+    homepage: 
 
