@@ -1,30 +1,36 @@
 <div class="card">
-    <div class="card-header text-white bg-inverse">
-        <i class="fa fa-calendar-o mr-3" aria-hidden="true"></i>
-        <strong data-fr="Dates importantes" data-en="Important Dates">Dates importantes</strong>
-    </div>
-    <div class="card-block bg-faded">
-        <ul class="list-group list-group-flush">
-            {% if site.data.conference.deadlines %}
-                {% for deadline in site.data.conference.deadlines %}
-                    <li class="list-group-item bg-faded text-muted">
-                        {% if deadline.pass_due %}
-                        <del>
-                        {% endif %}
-                            <p><strong>{{ deadline.text }}:</strong> 
-                            {% if deadline.timezone %}
-                            {{ deadline.date | date: "%B %e, %Y." }} ({{ deadline.timezone }})
-                            {% else %}
-                            {{ deadline.date | date: "%B %e, %Y." }}
-                            {% endif %}</p>
-                        {% if deadline.pass_due %}
-                        </del>
-                        {% endif %}
-                    </li>
-                {% endfor %}
-            {% else %}
-                <li class="list-group-item bg-faded text-muted">TBA</li>
-            {% endif %}
-        </ul>
-    </div>
+  <div class="card-header text-white bg-inverse">
+    <i class="fa fa-calendar-o mr-3" aria-hidden="true"></i>
+    <strong data-fr="Dates importantes" data-en="Important Dates">Dates importantes</strong>
+  </div>
+
+  <div class="card-block bg-faded">
+    <ul class="list-group list-group-flush">
+      {% if site.data.conference.deadlines %}
+        {% for deadline in site.data.conference.deadlines %}
+          <li class="list-group-item bg-faded text-muted">
+            {% if deadline.pass_due %}<del>{% endif %}
+
+            {% comment %} Get bilingual label if available {% endcomment %}
+            {% assign label = deadline.text[page.lang] | default: deadline.text %}
+
+            <p>
+              <strong>{{ label }}:</strong>
+              {% if deadline.timezone %}
+                {{ deadline.date | date: "%B %e, %Y." }} ({{ deadline.timezone }})
+              {% else %}
+                {{ deadline.date | date: "%B %e, %Y." }}
+              {% endif %}
+            </p>
+
+            {% if deadline.pass_due %}</del>{% endif %}
+          </li>
+        {% endfor %}
+      {% else %}
+        <li class="list-group-item bg-faded text-muted i18n"
+            data-fr="À venir"
+            data-en="TBA">À venir</li>
+      {% endif %}
+    </ul>
+  </div>
 </div>
