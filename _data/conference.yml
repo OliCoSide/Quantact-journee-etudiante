@@ -20,6 +20,8 @@ languages:
 
 default_language: fr
 
+logo_path: /assets/images/sponsors/logo_quantact.png
+
 navbar:
   - id: 0
     label: { fr: "Accueil", en: "Home" }
