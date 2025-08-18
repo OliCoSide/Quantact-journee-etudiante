@@ -70,48 +70,21 @@
 
 
           <ul class="navbar-nav ml-auto align-items-center">
-            {%- comment -%} Language toggle as a pill button on the right {%- endcomment -%}
-            {% assign toggle = nil %}
-            {% for nav in C.navbar %}
-                {% if nav.class == "language-toggle" and nav.visible %}
-                {% assign toggle = nav %}
-                {% endif %}
-            {% endfor %}
-
-            {% if toggle %}
-                {% if lang == "fr" %}
-                {% assign toggle_href = "/en" | append: page.url %}
-                {% assign toggle_label = toggle.label[lang] %} {# shows "EN" on FR pages #}
-                {% else %}
-                {% assign toggle_href = page.url | replace_first: "/en", "" %}
-                {% if toggle_href == "" %}{% assign toggle_href = "/" %}{% endif %}
-                {% assign toggle_label = toggle.label[lang] %} {# shows "FR" on EN pages #}
-                {% endif %}
-
-                <li class="nav-item">
-                <a class="btn btn-outline-light btn-sm rounded-pill px-3 lang-toggle"
-                    href="{{ toggle_href }}" aria-label="Switch language">
-                    {{ toggle_label }}
+            {%- comment -%} Language toggle button (no /en path) {%- endcomment -%}
+            <li class="nav-item">
+                {%- assign cur = page.url | replace:'index.html','' | relative_url -%}
+                {%- comment -%}
+                Fallback href (non-JS): current page with ?lang=en.
+                JS will intercept clicks and flip fr<->en without leaving the repo path.
+                {%- endcomment -%}
+                <a id="langToggle"
+                class="btn btn-outline-light btn-sm rounded-pill px-3 lang-toggle"
+                href="{{ cur }}?lang=en">
+                EN
                 </a>
-                </li>
-            {% endif %}
-
-            {# Social icons (if any) #}
-            {% if C.social_media.facebook_link %}
-                <li class="nav-item ml-2">
-                <a class="nav-link" href="{{ C.social_media.facebook_link }}">
-                    <span class="fa-stack"><i class="fa fa-facebook-square fa-stack-1x"></i></span>
-                </a>
-                </li>
-            {% endif %}
-            {% if C.social_media.twitter_link %}
-                <li class="nav-item">
-                <a class="nav-link" href="{{ C.social_media.twitter_link }}">
-                    <span class="fa-stack"><i class="fa fa-twitter-square fa-stack-1x"></i></span>
-                </a>
-                </li>
-            {% endif %}
+            </li>
             </ul>
+
 
         </div>
       </nav>
