@@ -1,61 +1,78 @@
 full_title: Journée Étudiante Quantact 2025
 short_title: Journée Étudiante Quantact
 email: Iro.Rene.Kouarfate@USherbrooke.ca
-description: > # this means to ignore newlines until "baseurl:"
-  La Journée Étudiante Quantact présente les travaux de recherche des étudiants affiliés au réseau Quantact.
-  Nos objectifs :
-    - Diffuser la recherche étudiante Quantact
-    - Créer des liens entre les six programmes Quantact
-    - Promouvoir la recherche auprès des étudiants de premier cycle
-location: Université Laval, Québec, 2025
-date: 3 Octobre 2025
-logo_path: ./assets/images/logo_jeq.png
-slideshow:
-  - id: 0
-    image_path: ./assets/images/slideshow/img_0.png
-    description: 
-    photographer_name: 
-    photographer_link: 
-    active: True
-  - id: 1
-    image_path: ./assets/images/slideshow/img_1.png
-    description: 
-    photographer_name: 
-    photographer_link: 
-  - id: 2
-    image_path: ./assets/images/slideshow/img_2.png
-    description: 
-    photographer_name: 
-    photographer_link: 
-  - id: 3
-    image_path: ./assets/images/slideshow/img_3.png
-    description:
-    photographer_name: 
-    photographer_link: 
+
+# Configuration multilingue
+languages:
+  fr:
+    full_title: Journée Étudiante Quantact 2025
+    short_title: Journée Étudiante Quantact
+    description: > 
+      La Journée Étudiante Quantact présente les travaux de recherche des étudiants affiliés au réseau Quantact.
+      Nos objectifs :
+        - Diffuser la recherche étudiante Quantact
+        - Créer des liens entre les six programmes Quantact
+        - Promouvoir la recherche auprès des étudiants de premier cycle
+    location: Université Laval, Québec, 2025
+    date: 3 Octobre 2025
+  en:
+    full_title: Quantact Student Day 2025
+    short_title: Quantact Student Day
+    description: >
+      The Quantact Student Day showcases research work by students affiliated with the Quantact network.
+      Our objectives:
+        - Disseminate Quantact student research
+        - Create links between the six Quantact programs
+        - Promote research to undergraduate students
+    location: Université Laval, Quebec, 2025
+    date: October 3, 2025
+
+# Default language
+default_language: fr
+
 navbar:
   - id: 0
-    label: Accueil
+    label: 
+      fr: Accueil
+      en: Home
     path: /
     visible: True
   - id: 1
-    label: Call for Papers
+    label:
+      fr: Call for Papers
+      en: Call for Papers
     path: /cfp.html
     visible: False
   - id: 2
-    label: Submission
+    label:
+      fr: Submission
+      en: Submission
     path: /submission.html
     visible: False
   - id: 3
-    label: Programme
+    label:
+      fr: Programme
+      en: Program
     path: /program.html
     visible: True
   - id: 4
-    label: Trouver l'endroit
+    label:
+      fr: Trouver l'endroit
+      en: Venue
     path: /venue.html
     visible: True
   - id: 5
-    label: S'inscrire
+    label:
+      fr: S'inscrire
+      en: Register
     path: /registration.html
+    visible: True
+  - id: 6
+    label:
+      fr: EN
+      en: FR
+    path: "#"
+    class: "language-toggle"
     visible: True
 news:
   - date: 2025-08-15

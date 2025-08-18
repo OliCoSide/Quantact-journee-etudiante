@@ -7,151 +7,141 @@ slide_id: 0
 ---
 
 
-
-
-<!-- Language Toggle Button -->
-<div class="d-flex justify-content-end mb-3">
-    <div class="btn-group" role="group" aria-label="Language Toggle">
-        <button type="button" class="btn btn-outline-primary" id="btn-fr" onclick="showLanguage('fr')">Français</button>
-        <button type="button" class="btn btn-outline-primary" id="btn-en" onclick="showLanguage('en')">English</button>
-    </div>
-</div>
+<!-- Add this JavaScript to your site (in a <script> tag or separate .js file) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get current language from localStorage or default to 'fr'
+    let currentLang = localStorage.getItem('selectedLanguage') || 'fr';
+    
+    // Function to update all text elements based on language
+    function updateLanguage(lang) {
+        // Store the selected language
+        localStorage.setItem('selectedLanguage', lang);
+        currentLang = lang;
+        
+        // Update all elements with data-lang-fr and data-lang-en attributes
+        document.querySelectorAll('[data-lang-fr][data-lang-en]').forEach(element => {
+            element.textContent = element.getAttribute(`data-lang-${lang}`);
+        });
+        
+        // Update navigation items
+        document.querySelectorAll('.navbar-item').forEach(item => {
+            const frText = item.getAttribute('data-label-fr');
+            const enText = item.getAttribute('data-label-en');
+            if (frText && enText) {
+                item.textContent = lang === 'fr' ? frText : enText;
+            }
+        });
+        
+        // Update the language toggle button text
+        const toggleBtn = document.querySelector('.language-toggle');
+        if (toggleBtn) {
+            toggleBtn.textContent = lang === 'fr' ? 'EN' : 'FR';
+        }
+        
+        // Update page title if needed
+        const titleElement = document.querySelector('title');
+        if (titleElement) {
+            const titles = {
+                'fr': 'Journée Étudiante Quantact 2025',
+                'en': 'Quantact Student Day 2025'
+            };
+            titleElement.textContent = titles[lang];
+        }
+        
+        // Update any other dynamic content
+        updateDynamicContent(lang);
+    }
+    
+    // Function to update dynamic content like dates, descriptions
+    function updateDynamicContent(lang) {
+        // Update dates
+        const dateElements = document.querySelectorAll('.event-date');
+        dateElements.forEach(el => {
+            if (el.getAttribute('data-date')) {
+                const dates = {
+                    'fr': '3 Octobre 2025',
+                    'en': 'October 3, 2025'
+                };
+                el.textContent = dates[lang];
+            }
+        });
+        
+        // Update location
+        const locationElements = document.querySelectorAll('.event-location');
+        locationElements.forEach(el => {
+            el.textContent = 'Université Laval, Québec, 2025';
+        });
+    }
+    
+    // Set up click handler for language toggle
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('language-toggle')) {
+            e.preventDefault();
+            const newLang = currentLang === 'fr' ? 'en' : 'fr';
+            updateLanguage(newLang);
+        }
+    });
+    
+    // Initialize with stored language or default
+    updateLanguage(currentLang);
+});
+</script>
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-justify conference-text">
 
-        <!-- French Content -->
-        <div id="content-fr" class="language-content">
             <h5>Bienvenue sur la page de la journée étudiante Quantact 2025!</h5>
 
             <p class="lead">
                 La journée étudiante Quantact 2025 aura lieu le 3 octobre 2025 à l'Université Laval.
             </p>
 
-            <p>Les présentations couvriront les initiatives de recherche en actuariat des universités affiliées à Quantact:</p>
-            
-            <ul>
+
+                <p>Les présentations couvriront les intiatives de recherche en actuariat des universités affiliées à Quantact:</p>
+                
+                <ul>
                 <li>Université Laval</li>
                 <li>Université de Sherbrooke</li>
                 <li>Université du Québec à Montréal</li>
                 <li>Université Concordia</li>
-                <li>Université de Montréal</li>
+                <li>Université de Montréal </li>
                 <li>HEC Montréal</li>
-            </ul>
-        </div>
+                </ul>
 
-        <!-- English Content -->
-        <div id="content-en" class="language-content" style="display: none;">
-            <h5>Welcome to the Quantact Student Day 2025 page!</h5>
 
-            <p class="lead">
-                The Quantact Student Day 2025 will take place on October 3, 2025 at Université Laval.
-            </p>
-
-            <p>Presentations will cover actuarial research initiatives from universities affiliated with Quantact:</p>
-            
-            <ul>
-                <li>Université Laval</li>
-                <li>Université de Sherbrooke</li>
-                <li>Université du Québec à Montréal</li>
-                <li>Université Concordia</li>
-                <li>Université de Montréal</li>
-                <li>HEC Montréal</li>
-            </ul>
-        </div>
-
-        {% include contact-us.html %}
+   
+                {% include contact-us.html %}
 
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <!--######### important dates ##########-->
-        {% include card-important-dates.html %}
-        <!--####################################-->
-        <!--######### news #####################-->
-        {% include card-news.html %}
-        <!--####################################-->
+            <!--######### important dates ##########-->
+            {% include card-important-dates.html %}
+            <!--####################################-->
+            <!--######### news #####################-->
+            {% include card-news.html %}
+            <!--####################################-->
 
-        <!--######### Program Chair ##########-->
-        <div class="card">
-            <!-- French Header -->
-            <div id="header-fr" class="card-header text-white bg-inverse language-content">
-                <strong>Comité d'organisation</strong>
-            </div>
-            <!-- English Header -->
-            <div id="header-en" class="card-header text-white bg-inverse language-content" style="display: none;">
-                <strong>Organizing Committee</strong>
-            </div>
-            
-            {% if site.data.conference.program_chair %}
-            {% for committee in site.data.conference.program_chair %}
-             <div class="card-block bg-faded committee">
-                <p><a href="{{ committee.homepage }}"><strong>{{ committee.name }}</strong></a></p>
-                <p class="card-subtitle text-muted" style="font-size: 90%;">{{ committee.org }}</p>
-            </div>  
-            {% endfor %}
-            {% else %}
-            <div class="card-block bg-faded committee">
-                <!-- French TBA -->
-                <div id="tba-fr" class="language-content">
-                    <p class="card-title">À déterminer</p>
-                    <p><strong>À déterminer</strong></p>
-                    <p class="card-subtitle text-muted" style="font-size: 90%;">À déterminer</p>
-                </div>
-                <!-- English TBA -->
-                <div id="tba-en" class="language-content" style="display: none;">
+            <!--######### Program Chair ##########-->
+            <div class="card">
+                <div class="card-header text-white bg-inverse"><strong>Comité d'organisation</strong></div>
+                {% if site.data.conference.program_chair %}
+                {% for committee in site.data.conference.program_chair %}
+                 <div class="card-block bg-faded committee">
+                    <p><a href="{{ committee.homepage }}"><strong>{{ committee.name }}</strong></a><p>
+                    <p class="card-subtitle text-muted" style="font-size: 90%;">{{ committee.org }}</p>
+                </div>  
+                {% endfor %}
+                {% else %}
+                <div class="card-block bg-faded committee">
                     <p class="card-title">TBA</p>
-                    <p><strong>TBA</strong></p>
+                    <p><strong>TBA</strong><p>
                     <p class="card-subtitle text-muted" style="font-size: 90%;">TBA</p>
-                </div>
-            </div>               
-            {% endif %}
-        </div>
+                </div>               
+                {% endif %}
     </div>
 </div>
 
-<script>
-function showLanguage(lang) {
-    // Hide all language content
-    const allContent = document.querySelectorAll('.language-content');
-    allContent.forEach(element => {
-        element.style.display = 'none';
-    });
-    
-    // Show selected language content
-    const selectedContent = document.querySelectorAll(`#content-${lang}, #header-${lang}, #tba-${lang}`);
-    selectedContent.forEach(element => {
-        element.style.display = 'block';
-    });
-    
-    // Update button states
-    document.getElementById('btn-fr').classList.remove('btn-primary');
-    document.getElementById('btn-fr').classList.add('btn-outline-primary');
-    document.getElementById('btn-en').classList.remove('btn-primary');
-    document.getElementById('btn-en').classList.add('btn-outline-primary');
-    
-    document.getElementById(`btn-${lang}`).classList.remove('btn-outline-primary');
-    document.getElementById(`btn-${lang}`).classList.add('btn-primary');
-    
-    // Store language preference
-    localStorage.setItem('preferred-language', lang);
-}
-
-// Initialize with French as default
-document.addEventListener('DOMContentLoaded', function() {
-    const savedLang = localStorage.getItem('preferred-language') || 'fr';
-    showLanguage(savedLang);
-});
-</script>
-
-<style>
-.language-content {
-    transition: opacity 0.3s ease-in-out;
-}
-
-.btn-group .btn {
-    min-width: 80px;
-}
-</style>
 
 {% include sponsors.html %}
 
