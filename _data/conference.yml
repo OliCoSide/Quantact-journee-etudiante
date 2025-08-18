@@ -2,78 +2,46 @@ full_title: Journée Étudiante Quantact 2025
 short_title: Journée Étudiante Quantact
 email: Iro.Rene.Kouarfate@USherbrooke.ca
 
-# Configuration multilingue
 languages:
   fr:
     full_title: Journée Étudiante Quantact 2025
     short_title: Journée Étudiante Quantact
-    description: > 
-      La Journée Étudiante Quantact présente les travaux de recherche des étudiants affiliés au réseau Quantact.
-      Nos objectifs :
-        - Diffuser la recherche étudiante Quantact
-        - Créer des liens entre les six programmes Quantact
-        - Promouvoir la recherche auprès des étudiants de premier cycle
+    description: >
+      La Journée Étudiante Quantact présente les travaux de recherche...
     location: Université Laval, Québec, 2025
     date: 3 Octobre 2025
   en:
     full_title: Quantact Student Day 2025
     short_title: Quantact Student Day
     description: >
-      The Quantact Student Day showcases research work by students affiliated with the Quantact network.
-      Our objectives:
-        - Disseminate Quantact student research
-        - Create links between the six Quantact programs
-        - Promote research to undergraduate students
+      The Quantact Student Day showcases research...
     location: Université Laval, Quebec, 2025
     date: October 3, 2025
 
-# Default language
 default_language: fr
 
 navbar:
   - id: 0
-    label: 
-      fr: Accueil
-      en: Home
+    label: { fr: "Accueil", en: "Home" }
     path: /
-    visible: True
-  - id: 1
-    label:
-      fr: Call for Papers
-      en: Call for Papers
-    path: /cfp.html
-    visible: False
-  - id: 2
-    label:
-      fr: Submission
-      en: Submission
-    path: /submission.html
-    visible: False
+    visible: true
   - id: 3
-    label:
-      fr: Programme
-      en: Program
+    label: { fr: "Programme", en: "Program" }
     path: /program.html
-    visible: True
+    visible: true
   - id: 4
-    label:
-      fr: Trouver l'endroit
-      en: Venue
+    label: { fr: "Trouver l'endroit", en: "Venue" }
     path: /venue.html
-    visible: True
+    visible: true
   - id: 5
-    label:
-      fr: S'inscrire
-      en: Register
+    label: { fr: "S'inscrire", en: "Register" }
     path: /registration.html
-    visible: True
+    visible: true
   - id: 6
-    label:
-      fr: EN
-      en: FR
+    label: { fr: "EN", en: "FR" }
     path: "#"
     class: "language-toggle"
-    visible: True
+    visible: true
 news:
   - date: 2025-08-15
     text: Site en ligne
@@ -98,3 +66,7 @@ program_chair:
     org: Université de Sherbrooke
     homepage: 
 
+# Useful defaults so every page has a lang
+defaults:
+  - scope: { path: "" }
+    values: { lang: fr }   # French default
