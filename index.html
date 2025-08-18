@@ -1,81 +1,80 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: page
 slide_id: 0
 ---
 
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-justify conference-text">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-justify conference-text">
 
-            <h5 data-lang-fr="Bienvenue sur la page de la journée étudiante Quantact 2025!" 
-                data-lang-en="Welcome to the Quantact Student Day 2025 page!">
-                Bienvenue sur la page de la journée étudiante Quantact 2025!
-            </h5>
+    <h5 class="i18n"
+        data-fr="Bienvenue sur la page de la journée étudiante Quantact 2025!"
+        data-en="Welcome to the Quantact Student Day 2025 page!">
+      Bienvenue sur la page de la journée étudiante Quantact 2025!
+    </h5>
 
-            <p class="lead">
-                <span data-lang-fr="La journée étudiante Quantact 2025 aura lieu le 3 octobre 2025 à l'Université Laval."
-                      data-lang-en="The Quantact Student Day 2025 will take place on October 3, 2025 at Université Laval.">
-                    La journée étudiante Quantact 2025 aura lieu le 3 octobre 2025 à l'Université Laval.
-                </span>
-            </p>
+    <p class="lead">
+      <span class="i18n"
+            data-fr="La journée étudiante Quantact 2025 aura lieu le 3 octobre 2025 à l'Université Laval."
+            data-en="The Quantact Student Day 2025 will take place on October 3, 2025 at Université Laval.">
+        La journée étudiante Quantact 2025 aura lieu le 3 octobre 2025 à l'Université Laval.
+      </span>
+    </p>
 
-            <p data-lang-fr="Les présentations couvriront les initiatives de recherche en actuariat des universités affiliées à Quantact:"
-               data-lang-en="Presentations will cover actuarial research initiatives from universities affiliated with Quantact:">
-                Les présentations couvriront les initiatives de recherche en actuariat des universités affiliées à Quantact:
-            </p>
-            
-            <ul>
-                <li>Université Laval</li>
-                <li>Université de Sherbrooke</li>
-                <li>Université du Québec à Montréal</li>
-                <li>Université Concordia</li>
-                <li>Université de Montréal</li>
-                <li>HEC Montréal</li>
-            </ul>
+    <p class="i18n"
+       data-fr="Les présentations couvriront les initiatives de recherche en actuariat des universités affiliées à Quantact:"
+       data-en="Presentations will cover actuarial research initiatives from universities affiliated with Quantact:">
+      Les présentations couvriront les initiatives de recherche en actuariat des universités affiliées à Quantact:
+    </p>
 
-            {% include contact-us.html %}
+    <ul>
+      <li>Université Laval</li>
+      <li>Université de Sherbrooke</li>
+      <li>Université du Québec à Montréal</li>
+      <li>Université Concordia</li>
+      <li>Université de Montréal</li>
+      <li>HEC Montréal</li>
+    </ul>
 
+    {% include contact-us.html %}
+
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+    <!--######### important dates ##########-->
+    {% include card-important-dates.html %}
+    <!--######### news #####################-->
+    {% include card-news.html %}
+
+    <!--######### Organizing Committee ##########-->
+    <div class="card">
+      <div class="card-header text-white bg-inverse">
+        <strong class="i18n"
+                data-fr="Comité d'organisation"
+                data-en="Organizing Committee">
+          Comité d'organisation
+        </strong>
+      </div>
+
+      {% if site.data.conference.program_chair %}
+        {% for committee in site.data.conference.program_chair %}
+          <div class="card-block bg-faded committee">
+            {% if committee.homepage %}
+              <p><a href="{{ committee.homepage }}"><strong>{{ committee.name }}</strong></a></p>
+            {% else %}
+              <p><strong>{{ committee.name }}</strong></p>
+            {% endif %}
+            <p class="card-subtitle text-muted" style="font-size: 90%;">{{ committee.org }}</p>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="card-block bg-faded committee">
+          <p class="card-title">TBA</p>
+          <p><strong>TBA</strong></p>
+          <p class="card-subtitle text-muted" style="font-size: 90%;">TBA</p>
+        </div>
+      {% endif %}
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <!--######### important dates ##########-->
-            {% include card-important-dates.html %}
-            <!--####################################-->
-            <!--######### news #####################-->
-            {% include card-news.html %}
-            <!--####################################-->
-
-            <!--######### Program Chair ##########-->
-            <div class="card">
-                <div class="card-header text-white bg-inverse">
-                    <strong data-lang-fr="Comité d'organisation" 
-                            data-lang-en="Organizing Committee">
-                        Comité d'organisation
-                    </strong>
-                </div>
-                {% if site.data.conference.program_chair %}
-                {% for committee in site.data.conference.program_chair %}
-                 <div class="card-block bg-faded committee">
-                    <p><a href="{{ committee.homepage }}"><strong>{{ committee.name }}</strong></a></p>
-                    <p class="card-subtitle text-muted" style="font-size: 90%;">{{ committee.org }}</p>
-                </div>  
-                {% endfor %}
-                {% else %}
-                <div class="card-block bg-faded committee">
-                    <p class="card-title">TBA</p>
-                    <p><strong>TBA</strong></p>
-                    <p class="card-subtitle text-muted" style="font-size: 90%;">TBA</p>
-                </div>               
-                {% endif %}
-            </div>
-    </div>
+  </div>
 </div>
 
-
 {% include sponsors.html %}
-
-
-
-
-
