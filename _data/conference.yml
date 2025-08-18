@@ -11,6 +11,7 @@ languages:
       La Journée Étudiante Quantact présente les travaux de recherche...
     location: Université Laval, Québec, 2025
     date: 3 Octobre 2025
+    logo_path: /assets/images/jeq_logo.png     # <-- add this
   en:
     full_title: Quantact Student Day 2025
     short_title: Quantact Student Day
@@ -18,10 +19,9 @@ languages:
       The Quantact Student Day showcases research...
     location: Université Laval, Quebec, 2025
     date: October 3, 2025
+    logo_path: /assets/images/qsd_logo.png     # <-- add this
 
 default_language: fr
-
-logo_path: /assets/images/logo_jeq.png
 
 slideshow:
   - image_path: /assets/images/
