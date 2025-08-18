@@ -24,7 +24,26 @@ languages:
 default_language: fr
 
 slideshow:
-  - image_path: /assets/images/slideshow/
+  - id: 0
+    image_path: /assets/images/slideshow/img_0.jpg
+    description: ""
+    photographer_name: ""
+    photographer_link: ""
+  - id: 1
+    image_path: /assets/images/slideshow/img_1.jpg
+    description: ""
+    photographer_name: ""
+    photographer_link: ""
+  - id: 2
+    image_path: /assets/images/slideshow/img_2.jpg
+    description: ""
+    photographer_name: ""
+    photographer_link: ""
+  - id: 3
+    image_path: /assets/images/slideshow/img_3.jpg
+    description: ""
+    photographer_name: ""
+    photographer_link: ""
 
 
 navbar:
