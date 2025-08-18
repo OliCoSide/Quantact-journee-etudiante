@@ -8,7 +8,7 @@ slide_id: 2
 
     {% for day in site.data.schedule %}
     <div>
-      <h4 class="schedule-table-heading">{{ day.dateReadable }}</h4>
+      <h4 class="schedule-table-heading">{{ day.dateReadable[page.lang] }}</h4>
 
       <table class="table table-bordered table-hover table-responsive table-sm schedule-table">
         {% for timeslot in day.timeslots %}
@@ -34,8 +34,8 @@ slide_id: 2
                   <p class="text-muted m-0">{{ timeslot.title }}</p>
                 {% else %}
                   <h5 class="m-0">{{ timeslot.title }}</h5>
-                  {% if timeslot.speaker %}<h5 class="m-0">{{ timeslot.speaker }}</h5>{% endif %}
-                  {% if timeslot.chair %}<h6 class="m-0">Session chair: {{ timeslot.chair }}</h6>{% endif %}
+                  {% if timeslot.speaker %}<h5 class="m-0">{{ timeslot.speaker[page.lang] }}</h5>{% endif %}
+                  {% if timeslot.chair %}<h6 class="m-0">Session chair: {{ timeslot.chair[page.lang] }}</h6>{% endif %}
                 {% endif %}
               </th>
             </tr>

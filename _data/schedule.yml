@@ -1,53 +1,110 @@
 - date: "2025-10-03"
-  dateReadable: "3 Octobre 2025"
+  dateReadable:
+    fr: "3 Octobre 2025"
+    en: "October 3, 2025"
   timeslots:
-  - startTime: "8:45"
-    endTime: "9:15"
-    title: "Accueil & mot de bienvenue"
-  - startTime: "9:15"
-    endTime: "10:00"
-    title: "Bloc UQÀM: Titre à venir"
-    speaker: "Thomas Landry"
-    chair: "À déterminer"
-  - startTime: "10:00"
-    endTime: "10:30"
-    title: "Pause café (matin)"
-    type: "service"
-  - startTime: "10:30"
-    endTime: "11:15"
-    title: "Bloc UdeM: À déterminer"
-    speaker: "À déterminer"
-    chair: "À déterminer"
-  - startTime: "11:15"
-    endTime: "12:00"
-    title: "Bloc Concordia: À déterminer"
-    speaker: "À déterminer"
-    chair: "À déterminer"
-  - startTime: "12:00"
-    endTime: "13:30"
-    title: "Diner"
-    type: "service"
-  - startTime: "13:30"
-    endTime: "14:15"
-    title: "Bloc UdeS: À déterminer"
-    speaker: "À déterminer"
-    chair: "Iro René Kouarfate"
-  - startTime: "14:15"
-    endTime: "15:00"
-    title: "Bloc HEC: À déterminer"
-    speaker: "Étienne Bacon"
-    chair: "À déterminer"
-  - startTime: "15:00"
-    endTime: "15:30"
-    title: "Pause café (après-midi)"
-    type: "service"
-  - startTime: "15:30"
-    endTime: "16:15"
-    title: "Bloc U. Laval: Titre à venir"
-    speaker: "Pertiny Wilfried Nkuize ketchiekmen"
-    chair: "Olivier Côté"
-  - startTime: "16:15"
-    endTime: "18:00"
-    title: "Conclusion et 5à7"
-    type: "service"
-    
+    - startTime: "8:45"
+      endTime: "9:15"
+      title:
+        fr: "Accueil & mot de bienvenue"
+        en: "Welcome & Opening Remarks"
+
+    - startTime: "9:15"
+      endTime: "10:00"
+      title:
+        fr: "Bloc UQÀM: Titre à venir"
+        en: "UQÀM Block: Title forthcoming"
+      speaker:
+        fr: "Thomas Landry"
+        en: "Thomas Landry"
+      chair:
+        fr: "À déterminer"
+        en: "TBD"
+
+    - startTime: "10:00"
+      endTime: "10:30"
+      type: "service"
+      title:
+        fr: "Pause café (matin)"
+        en: "Coffee Break (morning)"
+
+    - startTime: "10:30"
+      endTime: "11:15"
+      title:
+        fr: "Bloc UdeM: À déterminer"
+        en: "UdeM Block: TBD"
+      speaker:
+        fr: "À déterminer"
+        en: "TBD"
+      chair:
+        fr: "À déterminer"
+        en: "TBD"
+
+    - startTime: "11:15"
+      endTime: "12:00"
+      title:
+        fr: "Bloc Concordia: À déterminer"
+        en: "Concordia Block: TBD"
+      speaker:
+        fr: "À déterminer"
+        en: "TBD"
+      chair:
+        fr: "À déterminer"
+        en: "TBD"
+
+    - startTime: "12:00"
+      endTime: "13:30"
+      type: "service"
+      title:
+        fr: "Dîner"
+        en: "Lunch"
+
+    - startTime: "13:30"
+      endTime: "14:15"
+      title:
+        fr: "Bloc UdeS: À déterminer"
+        en: "UdeS Block: TBD"
+      speaker:
+        fr: "À déterminer"
+        en: "TBD"
+      chair:
+        fr: "Iro René Kouarfate"
+        en: "Iro René Kouarfate"
+
+    - startTime: "14:15"
+      endTime: "15:00"
+      title:
+        fr: "Bloc HEC: À déterminer"
+        en: "HEC Block: TBD"
+      speaker:
+        fr: "Étienne Bacon"
+        en: "Étienne Bacon"
+      chair:
+        fr: "À déterminer"
+        en: "TBD"
+
+    - startTime: "15:00"
+      endTime: "15:30"
+      type: "service"
+      title:
+        fr: "Pause café (après-midi)"
+        en: "Coffee Break (afternoon)"
+
+    - startTime: "15:30"
+      endTime: "16:15"
+      title:
+        fr: "Bloc U. Laval: Titre à venir"
+        en: "Université Laval Block: Title forthcoming"
+      speaker:
+        fr: "Pertiny Wilfried Nkuize Ketchiekmen"
+        en: "Pertiny Wilfried Nkuize Ketchiekmen"
+      chair:
+        fr: "Olivier Côté"
+        en: "Olivier Côté"
+
+    - startTime: "16:15"
+      endTime: "18:00"
+      type: "service"
+      title:
+        fr: "Conclusion et 5à7"
+        en: "Conclusion & Reception"

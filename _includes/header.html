@@ -1,101 +1,112 @@
 <header class="site-header">
-    <div class="row">
+  {% assign C = site.data.conference %}
+  {% assign lang = page.lang | default: C.default_language %}
 
-        <!--conference info-->
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-5 col-xl-4 offset-xl-1">
+  <div class="row">
+    <!-- conference info -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-5 col-xl-4 offset-xl-1">
+      <div class="jumbotron" style="background-color: white; min-height: 300px; padding: 2.5rem;">
+        {% if C.logo_path %}<img class="img-fluid" src="{{ C.logo_path }}">{% endif %}
+        <h5 class="text-center mt-0">{{ C.languages[lang].date }}</h5>
+        <p class="text-center mb-0">{{ C.languages[lang].location }}</p>
+      </div>
+    </div>
 
-            <div class="jumbotron" style="background-color: white; min-height: 300px; padding: 2.5rem;" >
-                <img class="img-fluid" src="{{ site.data.conference.logo_path }}">
-                <h5 class="text-center mt-0">{{ site.data.conference.date }}</h5>
-                <p class="text-center mb-0">{{ site.data.conference.location }}</p>
-            </div>
-
-        </div>     
-
-        <!--slide show-->
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-7 col-xl-6">
-                
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-                        <div class="carousel-inner" role="listbox">
-                            
-                            {% for slide in site.data.conference.slideshow %}
-                            {% if page.slide_id and page.slide_id  == slide.id %}
-                            <div class="carousel-item active">
-                            {% else %}
-                            <div class="carousel-item">
-                            {% endif %}
-                                <!--<img class="img-fluid" src="{{ site.baseurl }}{{ slide.image_path }}" alt="{{ slide.description }}">-->
-                                <img class="img-fluid" src="{{ slide.image_path }}" alt="{{ slide.description }}">
-                                <div class="carousel-caption d-none d-md-block text-muted">
-                                    <p class="align-bottom"> {{ slide.description }}, by <a href="{{ slide.photographer_link }}">{{slide.photographer_name}}</a>, 
-                                        under <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons license</a>.
-                                    </p>
-                                </div>
-                            </div>
-                            {% endfor %}
-
-                        </div>
+    <!-- slide show -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-7 col-xl-6">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          {% for slide in C.slideshow %}
+            {% if page.slide_id and page.slide_id == slide.id %}
+              <div class="carousel-item active">
+            {% else %}
+              <div class="carousel-item">
+            {% endif %}
+                <img class="img-fluid" src="{{ slide.image_path }}" alt="{{ slide.description }}">
+                <div class="carousel-caption d-none d-md-block text-muted">
+                  <p class="align-bottom">
+                    {{ slide.description }}, by <a href="{{ slide.photographer_link }}">{{ slide.photographer_name }}</a>,
+                    under <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons license</a>.
+                  </p>
                 </div>
+              </div>
+          {% endfor %}
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="row">
+  <div class="row">
+    <!-- navbar -->
+    <div class="mynav col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-10 offset-xl-1">
+      <nav class="nav navbar-toggleable-sm navbar-inverse">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <!--navbar-->
-        <div class="mynav col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-10 offset-xl-1">
-                <nav class="nav navbar-toggleable-sm navbar-inverse">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse " id="navbarToggler">
-                        <a class="navbar-brand" href="#"> </a>
-                        <ul class="navbar-nav mx-auto text-center">
-                            {% for nav in site.data.conference.navbar %}
-                                {% if nav.visible %}
-                                    {% if page.url == nav.path %}
-                                        <li class="nav-item active">
-                                            <a class="nav-link m-1" href=".{{ nav.path }}">
-                                                <strong>{{ nav.label | escape }}</strong>
-                                                <span class="sr-only">(current)</span>
-                                            </a>
-                                        </li>
-                                    {% else %}
-                                        <li class="nav-item">
-                                            <a class="nav-link m-1" href=".{{ nav.path }}">
-                                                <strong>{{ nav.label | escape }}</strong>
-                                            </a>
-                                        </li>   
-                                    {% endif %}
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                        
-                        <ul class="navbar-nav ml-auto">
-                            {% if site.data.conference.social_media.facebook_link != nil %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ site.data.conference.social_media.facebook_link }}">
-                                    <span class="fa-stack">
-                                        <i class="fa fa-facebook-square fa-stack-1x"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            {% endif %}
-                            {% if site.data.conference.social_media.twitter_link != nil %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ site.data.conference.social_media.twitter_link }}">
-                                    <span class="fa-stack">
-                                        <i class="fa fa-twitter-square fa-stack-1x"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            {% endif %}
-                        </ul>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <a class="navbar-brand" href="#"> </a>
 
-                    </div>
-                </nav>
+          <ul class="navbar-nav mx-auto text-center">
+            {% for nav in C.navbar %}
+              {% if nav.visible %}
+                {% assign is_toggle = nav.class == "language-toggle" %}
+
+                {% comment %}
+                  Compute href for this item:
+                  - For EN pages, prefix '/en' to normal paths (except root '/')
+                  - For language toggle, compute the alternate URL (FR <-> EN)
+                {% endcomment %}
+
+                {% if is_toggle %}
+                  {% if lang == "fr" %}
+                    {% assign href = "/en" | append: page.url %}
+                  {% else %}
+                    {% assign href = page.url | replace_first: "/en", "" %}
+                    {% if href == "" %}{% assign href = "/" %}{% endif %}
+                  {% endif %}
+                {% else %}
+                  {% assign href = nav.path %}
+                  {% if lang == "en" %}
+                    {% if href == "/" %}
+                      {% assign href = "/en/" %}
+                    {% else %}
+                      {% assign href = "/en" | append: href %}
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+
+                {% assign label = nav.label[lang] %}
+
+                {% assign active = page.url == href %}
+                <li class="nav-item{% if active %} active{% endif %}">
+                  <a class="nav-link m-1{% if is_toggle %} language-toggle{% endif %}" href="{{ href }}">
+                    <strong>{{ label | escape }}</strong>{% if active %}<span class="sr-only">(current)</span>{% endif %}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+
+          <ul class="navbar-nav ml-auto">
+            {% if C.social_media.facebook_link %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ C.social_media.facebook_link }}">
+                  <span class="fa-stack"><i class="fa fa-facebook-square fa-stack-1x"></i></span>
+                </a>
+              </li>
+            {% endif %}
+            {% if C.social_media.twitter_link %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ C.social_media.twitter_link }}">
+                  <span class="fa-stack"><i class="fa fa-twitter-square fa-stack-1x"></i></span>
+                </a>
+              </li>
+            {% endif %}
+          </ul>
         </div>
-
+      </nav>
     </div>
+  </div>
 </header>
