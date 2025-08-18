@@ -1,101 +1,32 @@
 <head>
+  {% assign C = site.data.conference %}
+  {% assign lang = page.lang | default: C.default_language %}
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.data.conference.short_title | escape }}{% endif %}</title>
-  <meta name="description" content="{{ page.excerpt | default: site.data.conference.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <title>
+    {% if page.title %}
+      {{ page.title | escape }} · {{ C.languages[lang].short_title | escape }}
+    {% else %}
+      {{ C.languages[lang].full_title | escape }}
+    {% endif %}
+  </title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+  <meta name="description"
+        content="{{ page.excerpt | default: C.languages[lang].description
+        | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
-  <link rel="stylesheet" href="{{ site.css }} ">
-  <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ site.css }}">
+  <link rel="stylesheet" href="{{ '/assets/font-awesome/css/font-awesome.min.css' | relative_url }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
   {% if site.google_analytics %}
-  {% include google-analytics.html %}
+    {% include google-analytics.html %}
   {% endif %}
-
 </head>
-
-
-<!-- Add this JavaScript to your site (in a <script> tag or separate .js file) -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Get current language from localStorage or default to 'fr'
-    let currentLang = localStorage.getItem('selectedLanguage') || 'fr';
-    
-    // Function to update all text elements based on language
-    function updateLanguage(lang) {
-        // Store the selected language
-        localStorage.setItem('selectedLanguage', lang);
-        currentLang = lang;
-        
-        // Update all elements with data-lang-fr and data-lang-en attributes
-        document.querySelectorAll('[data-lang-fr][data-lang-en]').forEach(element => {
-            element.textContent = element.getAttribute(`data-lang-${lang}`);
-        });
-        
-        // Update navigation items
-        document.querySelectorAll('.navbar-item').forEach(item => {
-            const frText = item.getAttribute('data-label-fr');
-            const enText = item.getAttribute('data-label-en');
-            if (frText && enText) {
-                item.textContent = lang === 'fr' ? frText : enText;
-            }
-        });
-        
-        // Update the language toggle button text
-        const toggleBtn = document.querySelector('.language-toggle');
-        if (toggleBtn) {
-            toggleBtn.textContent = lang === 'fr' ? 'EN' : 'FR';
-        }
-        
-        // Update page title if needed
-        const titleElement = document.querySelector('title');
-        if (titleElement) {
-            const titles = {
-                'fr': 'Journée Étudiante Quantact 2025',
-                'en': 'Quantact Student Day 2025'
-            };
-            titleElement.textContent = titles[lang];
-        }
-        
-        // Update any other dynamic content
-        updateDynamicContent(lang);
-    }
-    
-    // Function to update dynamic content like dates, descriptions
-    function updateDynamicContent(lang) {
-        // Update dates
-        const dateElements = document.querySelectorAll('.event-date');
-        dateElements.forEach(el => {
-            if (el.getAttribute('data-date')) {
-                const dates = {
-                    'fr': '3 Octobre 2025',
-                    'en': 'October 3, 2025'
-                };
-                el.textContent = dates[lang];
-            }
-        });
-        
-        // Update location
-        const locationElements = document.querySelectorAll('.event-location');
-        locationElements.forEach(el => {
-            el.textContent = 'Université Laval, Québec, 2025';
-        });
-    }
-    
-    // Set up click handler for language toggle
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('language-toggle')) {
-            e.preventDefault();
-            const newLang = currentLang === 'fr' ? 'en' : 'fr';
-            updateLanguage(newLang);
-        }
-    });
-    
-    // Initialize with stored language or default
-    updateLanguage(currentLang);
-});
-</script>
