@@ -16,8 +16,16 @@
             data-src-en="{{ logo_en }}"
             alt="Logo">
 
-        <h5 class="text-center mt-0">{{ C.languages[lang].date }}</h5>
-        <p class="text-center mb-0">{{ C.languages[lang].location }}</p>
+        <h5 class="text-center mt-0"
+            data-fr="{{ C.languages.fr.date }}"
+            data-en="{{ C.languages.en.date }}">
+        {{ C.languages.fr.date }}
+        </h5>
+        <p class="text-center mb-0"
+        data-fr="{{ C.languages.fr.location }}"
+        data-en="{{ C.languages.en.location }}">
+        {{ C.languages.fr.location }}
+        </p>
       </div>
     </div>
 
@@ -62,13 +70,17 @@
                 {% if nav.visible %}
                 {% assign is_toggle = nav.class == "language-toggle" %}
                 {% unless is_toggle %}
-                    {% assign href = nav.path | relative_url %}
-                    {% assign label = nav.label[lang] %}
+                    {% assign label_fr = nav.label.fr %}
+                    {% assign label_en = nav.label.en %}
                     {% assign cur = page.url | replace:'index.html','' %}
                     {% assign active = cur == nav.path %}
                     <li class="nav-item{% if active %} active{% endif %}">
-                    <a class="nav-link m-1" href="{{ href }}" {% if active %}aria-current="page"{% endif %}>
-                        <strong>{{ label | escape }}</strong>
+                    <a class="nav-link m-1"
+                        href="{{ href }}"
+                        data-fr="{{ label_fr | escape }}"
+                        data-en="{{ label_en | escape }}"
+                        {% if active %}aria-current="page"{% endif %}>
+                        <strong><span class="nav-label">{{ label_fr | escape }}</span></strong>
                     </a>
                     </li>
                 {% endunless %}
