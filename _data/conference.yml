@@ -4,9 +4,9 @@ email: Iro.Rene.Kouarfate@USherbrooke.ca
 description: > # this means to ignore newlines until "baseurl:"
   La Journée Étudiante Quantact présente les travaux de recherche des étudiants affiliés au réseau Quantact.
   Nos objectifs :
-    Diffuser la recherche étudiante Quantact
-    Créer des liens entre les six programmes Quantact
-    Promouvoir la recherche auprès des étudiants de premier cycle
+    - Diffuser la recherche étudiante Quantact
+    - Créer des liens entre les six programmes Quantact
+    - Promouvoir la recherche auprès des étudiants de premier cycle
 location: Université Laval, Québec, 2025
 date: 3 Octobre 2025
 logo_path: ./assets/images/logo_jeq.png
@@ -38,26 +38,22 @@ navbar:
     path: /
     visible: True
   - id: 1
-    label: À propos de l'organisation
-    path: /organization.html
-    visible: True
-  - id: 2
     label: Call for Papers
     path: /cfp.html
     visible: False
-  - id: 3
+  - id: 2
     label: Submission
     path: /submission.html
     visible: False
-  - id: 4
+  - id: 3
     label: Programme
     path: /program.html
     visible: True
-  - id: 5
+  - id: 4
     label: Trouver l'endroit
     path: /venue.html
     visible: True
-  - id: 6
+  - id: 5
     label: S'inscrire
     path: /registration.html
     visible: True
