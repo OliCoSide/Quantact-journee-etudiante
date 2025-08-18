@@ -10,7 +10,7 @@ languages:
       La Journée Étudiante Quantact présente les travaux de recherche...
     location: Université Laval, Québec, 2025
     date: 3 Octobre 2025
-    logo_path: /assets/images/jeq_logo.png     # <-- add this
+    logo_path: /assets/images/jeq_logo.png
   en:
     full_title: Quantact Student Day 2025
     short_title: Quantact Student Day
@@ -18,7 +18,7 @@ languages:
       The Quantact Student Day showcases research...
     location: Université Laval, Quebec, 2025
     date: October 3, 2025
-    logo_path: /assets/images/qsd_logo.png     # <-- add this
+    logo_path: /assets/images/qsd_logo.png
 
 default_language: fr
 
@@ -44,7 +44,6 @@ slideshow:
     photographer_name: ""
     photographer_link: ""
 
-
 navbar:
   - id: 0
     label: { fr: "Accueil", en: "Home" }
@@ -67,22 +66,27 @@ navbar:
     path: "#"
     class: "language-toggle"
     visible: true
+
 news:
   - date: 2025-08-15
-    text: Site en ligne
+    text: { fr: "Site en ligne", en: "Website online" }
   - date: 2025-07-31
-    text: Formation du comité
+    text: { fr: "Formation du comité", en: "Committee formed" }
+
 deadlines:
   - date: 2025-10-03
-    text: Journée étudiante Quantact 2025
+    text: { fr: "Journée étudiante Quantact 2025", en: "Quantact Student Day 2025" }
   - date: 2025-08-18
-    text: Inscriptions ouvertes
+    text: { fr: "Inscriptions ouvertes", en: "Registration open" }
+
 sponsors:
   - name: Quantact
     logo_path: /assets/images/sponsors/logo_quantact.png
+
 social_media:
   facebook_link: 
   twitter_link:
+
 program_chair:
   - name: Olivier Côté
     org: Université Laval
@@ -93,4 +97,3 @@ program_chair:
   - name: Criscent Birungi
     org: Concordia University
     homepage: 
-
