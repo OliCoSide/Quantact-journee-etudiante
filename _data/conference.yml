@@ -25,7 +25,7 @@ logo_path: ./assets/images/logo_jeq.png
 navbar:
   - id: 0
     label: { fr: "Accueil", en: "Home" }
-    path: ./
+    path: ./index.html
     visible: true
   - id: 3
     label: { fr: "Programme", en: "Program" }
