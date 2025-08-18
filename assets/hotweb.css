@@ -136,19 +136,31 @@ footer {
 .navbar-inverse .navbar-nav  > li > a:hover { color: #5393c5 !important; }
 .navbar-inverse .navbar-nav  > .active { color: #5393c5 !important; }
 
+/* Neutralize Bootstrap blues/yellows inside the schedule only */
+.schedule-table .bg-primary {
+  background: #e9ecef !important;   /* muted gray */
+  color: #212529 !important;
+  border-color: #d6d8db !important;
+}
+.schedule-table .bg-warning {
+  background: #f6f6f2 !important;   /* soft off-white */
+  color: #555 !important;
+  border-color: #e4e4dc !important;
+}
+
 /* Distinct left column band (header + body) */
 .schedule-table .time-header {
-  background: #eef3f9;            /* subtle blue */
-  color: #1f3b57;
+  background: #f4f4f4;        /* light gray */
+  color: #333;
   text-align: center;
   width: 20%;
   white-space: nowrap;
   font-weight: 600;
-  border-right: 3px solid #dbe6f3;
+  border-right: 3px solid #e0e0e0;
 }
 .schedule-table tbody td.time-col {
-  background: #f6f9fc;            /* very light tint to align with header */
-  border-right: 3px solid #e6eef7;
+  background: #fafafa;        /* very light gray */
+  border-right: 3px solid #e0e0e0;
 }
 
 /* Coffee / break highlight */
