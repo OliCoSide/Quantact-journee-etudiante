@@ -12,7 +12,7 @@ slide_id: 2
 
       <table class="table table-bordered table-hover table-responsive table-sm schedule-table">
         {% for timeslot in day.timeslots %}
-          {% assign title_lc = timeslot.title | downcase %}
+          {% assign title_lc = timeslot.title[page.lang] | downcase %}
           {% assign slot_class = "bg-primary text-center" %}
           {% if timeslot.type == "service" %}
             {% assign slot_class = "bg-warning text-center" %}
@@ -31,9 +31,9 @@ slide_id: 2
               </th>
               <th class="{{ slot_class }}">
                 {% if timeslot.type == "service" %}
-                  <p class="text-muted m-0">{{ timeslot.title }}</p>
+                  <p class="text-muted m-0">{{ timeslot.title[page.lang] }}</p>
                 {% else %}
-                  <h5 class="m-0">{{ timeslot.title }}</h5>
+                  <h5 class="m-0">{{ timeslot.title[page.lang] }}</h5>
                   {% if timeslot.speaker %}<h5 class="m-0">{{ timeslot.speaker[page.lang] }}</h5>{% endif %}
                   {% if timeslot.chair %}<h6 class="m-0">Session chair: {{ timeslot.chair[page.lang] }}</h6>{% endif %}
                 {% endif %}
