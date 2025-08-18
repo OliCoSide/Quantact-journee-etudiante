@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header text-white bg-inverse">
     <i class="fa fa-calendar-o mr-3" aria-hidden="true"></i>
-    <strong data-fr="Dates importantes" data-en="Important Dates">Dates importantes</strong>
+    <strong class="i18n" data-fr="Dates importantes" data-en="Important Dates">Dates importantes</strong>
   </div>
 
   <div class="card-block bg-faded">
@@ -11,11 +11,19 @@
           <li class="list-group-item bg-faded text-muted">
             {% if deadline.pass_due %}<del>{% endif %}
 
-            {% comment %} Get bilingual label if available {% endcomment %}
-            {% assign label = deadline.text[page.lang] | default: deadline.text %}
-
             <p>
-              <strong>{{ label }}:</strong>
+              {% if deadline.text.fr or deadline.text.en %}
+                <strong>
+                  <span class="i18n"
+                        data-fr="{{ deadline.text.fr | escape }}"
+                        data-en="{{ deadline.text.en | default: deadline.text.fr | escape }}">
+                    {{ deadline.text.fr | escape }}
+                  </span>:
+                </strong>
+              {% else %}
+                <strong>{{ deadline.text }}:</strong>
+              {% endif %}
+
               {% if deadline.timezone %}
                 {{ deadline.date | date: "%B %e, %Y." }} ({{ deadline.timezone }})
               {% else %}
