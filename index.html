@@ -9,60 +9,149 @@ slide_id: 0
 
 
 
+<!-- Language Toggle Button -->
+<div class="d-flex justify-content-end mb-3">
+    <div class="btn-group" role="group" aria-label="Language Toggle">
+        <button type="button" class="btn btn-outline-primary" id="btn-fr" onclick="showLanguage('fr')">Français</button>
+        <button type="button" class="btn btn-outline-primary" id="btn-en" onclick="showLanguage('en')">English</button>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-justify conference-text">
 
+        <!-- French Content -->
+        <div id="content-fr" class="language-content">
             <h5>Bienvenue sur la page de la journée étudiante Quantact 2025!</h5>
 
             <p class="lead">
                 La journée étudiante Quantact 2025 aura lieu le 3 octobre 2025 à l'Université Laval.
             </p>
 
-
-                <p>Les présentations couvriront les intiatives de recherche en actuariat des universités affiliées à Quantact:</p>
-                
-                <ul>
+            <p>Les présentations couvriront les initiatives de recherche en actuariat des universités affiliées à Quantact:</p>
+            
+            <ul>
                 <li>Université Laval</li>
                 <li>Université de Sherbrooke</li>
                 <li>Université du Québec à Montréal</li>
                 <li>Université Concordia</li>
-                <li>Université de Montréal </li>
+                <li>Université de Montréal</li>
                 <li>HEC Montréal</li>
-                </ul>
+            </ul>
+        </div>
 
+        <!-- English Content -->
+        <div id="content-en" class="language-content" style="display: none;">
+            <h5>Welcome to the Quantact Student Day 2025 page!</h5>
 
-   
-                {% include contact-us.html %}
+            <p class="lead">
+                The Quantact Student Day 2025 will take place on October 3, 2025 at Université Laval.
+            </p>
+
+            <p>Presentations will cover actuarial research initiatives from universities affiliated with Quantact:</p>
+            
+            <ul>
+                <li>Université Laval</li>
+                <li>Université de Sherbrooke</li>
+                <li>Université du Québec à Montréal</li>
+                <li>Université Concordia</li>
+                <li>Université de Montréal</li>
+                <li>HEC Montréal</li>
+            </ul>
+        </div>
+
+        {% include contact-us.html %}
 
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-            <!--######### important dates ##########-->
-            {% include card-important-dates.html %}
-            <!--####################################-->
-            <!--######### news #####################-->
-            {% include card-news.html %}
-            <!--####################################-->
+        <!--######### important dates ##########-->
+        {% include card-important-dates.html %}
+        <!--####################################-->
+        <!--######### news #####################-->
+        {% include card-news.html %}
+        <!--####################################-->
 
-            <!--######### Program Chair ##########-->
-            <div class="card">
-                <div class="card-header text-white bg-inverse"><strong>Comité d'organisation</strong></div>
-                {% if site.data.conference.program_chair %}
-                {% for committee in site.data.conference.program_chair %}
-                 <div class="card-block bg-faded committee">
-                    <p><a href="{{ committee.homepage }}"><strong>{{ committee.name }}</strong></a><p>
-                    <p class="card-subtitle text-muted" style="font-size: 90%;">{{ committee.org }}</p>
-                </div>  
-                {% endfor %}
-                {% else %}
-                <div class="card-block bg-faded committee">
+        <!--######### Program Chair ##########-->
+        <div class="card">
+            <!-- French Header -->
+            <div id="header-fr" class="card-header text-white bg-inverse language-content">
+                <strong>Comité d'organisation</strong>
+            </div>
+            <!-- English Header -->
+            <div id="header-en" class="card-header text-white bg-inverse language-content" style="display: none;">
+                <strong>Organizing Committee</strong>
+            </div>
+            
+            {% if site.data.conference.program_chair %}
+            {% for committee in site.data.conference.program_chair %}
+             <div class="card-block bg-faded committee">
+                <p><a href="{{ committee.homepage }}"><strong>{{ committee.name }}</strong></a></p>
+                <p class="card-subtitle text-muted" style="font-size: 90%;">{{ committee.org }}</p>
+            </div>  
+            {% endfor %}
+            {% else %}
+            <div class="card-block bg-faded committee">
+                <!-- French TBA -->
+                <div id="tba-fr" class="language-content">
+                    <p class="card-title">À déterminer</p>
+                    <p><strong>À déterminer</strong></p>
+                    <p class="card-subtitle text-muted" style="font-size: 90%;">À déterminer</p>
+                </div>
+                <!-- English TBA -->
+                <div id="tba-en" class="language-content" style="display: none;">
                     <p class="card-title">TBA</p>
-                    <p><strong>TBA</strong><p>
+                    <p><strong>TBA</strong></p>
                     <p class="card-subtitle text-muted" style="font-size: 90%;">TBA</p>
-                </div>               
-                {% endif %}
+                </div>
+            </div>               
+            {% endif %}
+        </div>
     </div>
 </div>
 
+<script>
+function showLanguage(lang) {
+    // Hide all language content
+    const allContent = document.querySelectorAll('.language-content');
+    allContent.forEach(element => {
+        element.style.display = 'none';
+    });
+    
+    // Show selected language content
+    const selectedContent = document.querySelectorAll(`#content-${lang}, #header-${lang}, #tba-${lang}`);
+    selectedContent.forEach(element => {
+        element.style.display = 'block';
+    });
+    
+    // Update button states
+    document.getElementById('btn-fr').classList.remove('btn-primary');
+    document.getElementById('btn-fr').classList.add('btn-outline-primary');
+    document.getElementById('btn-en').classList.remove('btn-primary');
+    document.getElementById('btn-en').classList.add('btn-outline-primary');
+    
+    document.getElementById(`btn-${lang}`).classList.remove('btn-outline-primary');
+    document.getElementById(`btn-${lang}`).classList.add('btn-primary');
+    
+    // Store language preference
+    localStorage.setItem('preferred-language', lang);
+}
+
+// Initialize with French as default
+document.addEventListener('DOMContentLoaded', function() {
+    const savedLang = localStorage.getItem('preferred-language') || 'fr';
+    showLanguage(savedLang);
+});
+</script>
+
+<style>
+.language-content {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.btn-group .btn {
+    min-width: 80px;
+}
+</style>
 
 {% include sponsors.html %}
 
