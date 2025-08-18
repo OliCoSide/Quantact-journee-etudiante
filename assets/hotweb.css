@@ -135,3 +135,40 @@ footer {
 
 .navbar-inverse .navbar-nav  > li > a:hover { color: #5393c5 !important; }
 .navbar-inverse .navbar-nav  > .active { color: #5393c5 !important; }
+
+/* Distinct left column band (header + body) */
+.schedule-table .time-header {
+  background: #eef3f9;            /* subtle blue */
+  color: #1f3b57;
+  text-align: center;
+  width: 20%;
+  white-space: nowrap;
+  font-weight: 600;
+  border-right: 3px solid #dbe6f3;
+}
+.schedule-table tbody td.time-col {
+  background: #f6f9fc;            /* very light tint to align with header */
+  border-right: 3px solid #e6eef7;
+}
+
+/* Coffee / break highlight */
+.bg-coffee {
+  background: #fff4d6 !important; /* warm latte */
+  color: #5b4200 !important;
+  border-color: #f7e3ae !important;
+}
+
+/* Meal (lunch/dinner) highlight */
+.bg-meal {
+  background: #e7f7ee !important; /* fresh green */
+  color: #114b2d !important;
+  border-color: #c8ecd9 !important;
+}
+
+/* Keep primary/service looking nice with stripes already present */
+.schedule-table thead th {
+  vertical-align: middle;
+}
+.schedule-table h5, .schedule-table h6, .schedule-table p {
+  margin-bottom: 0.25rem;
+}
