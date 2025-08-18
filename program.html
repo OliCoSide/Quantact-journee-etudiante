@@ -8,7 +8,7 @@ slide_id: 2
 
     {% for day in site.data.schedule %}
     <div>
-      {%- comment -%} Day heading (live i18n) {%- endcomment -%}
+      <!-- Day heading (live i18n) -->
       <h4 class="schedule-table-heading i18n"
           data-fr="{{ day.dateReadable.fr }}"
           data-en="{{ day.dateReadable.en }}">
@@ -18,9 +18,7 @@ slide_id: 2
       <table class="table table-bordered table-hover table-responsive table-sm schedule-table">
 
         {% for timeslot in day.timeslots %}
-          {%- comment -%}
-            Robust slot classification (FR + EN keywords)
-          {%- endcomment -%}
+          <!-- Robust slot classification (FR + EN keywords) -->
           {% assign t_fr = timeslot.title.fr | default: timeslot.title | downcase %}
           {% assign t_en = timeslot.title.en | default: timeslot.title | downcase %}
 
@@ -29,12 +27,12 @@ slide_id: 2
             {% assign slot_class = "bg-warning text-center" %}
           {% endif %}
 
-          {%- comment -%} Coffee / Break keywords (fr/en) {%- endcomment -%}
+          <!-- Coffee / Break keywords (fr/en) -->
           {% if t_fr contains "pause" or t_fr contains "café" or t_en contains "coffee" or t_en contains "break" %}
             {% assign slot_class = "bg-coffee text-center" %}
           {% endif %}
 
-          {%- comment -%} Meal keywords (fr/en) {%- endcomment -%}
+          <!-- Meal keywords (fr/en) -->
           {% if t_fr contains "dîner" or t_fr contains "diner" or t_fr contains "repas" or t_en contains "lunch" or t_en contains "dinner" or t_en contains "meal" %}
             {% assign slot_class = "bg-meal text-center" %}
           {% endif %}
@@ -44,7 +42,7 @@ slide_id: 2
               <th class="time-header"><div>{{ timeslot.startTime }}-{{ timeslot.endTime }}</div></th>
               <th class="{{ slot_class }}">
                 {% if timeslot.type == "service" %}
-                  {# Service row title (live i18n if provided, else FR fallback) #}
+                  <!-- Service row title (live i18n if provided, else FR fallback) -->
                   {% if timeslot.title.fr and timeslot.title.en %}
                     <p class="text-muted m-0 i18n"
                        data-fr="{{ timeslot.title.fr }}"
@@ -55,7 +53,7 @@ slide_id: 2
                     <p class="text-muted m-0">{{ timeslot.title[page.lang] | default: timeslot.title }}</p>
                   {% endif %}
                 {% else %}
-                  {# Regular session title (live i18n if provided) #}
+                  <!-- Regular session title (live i18n if provided) -->
                   {% if timeslot.title.fr and timeslot.title.en %}
                     <h5 class="m-0 i18n"
                         data-fr="{{ timeslot.title.fr }}"
@@ -66,7 +64,7 @@ slide_id: 2
                     <h5 class="m-0">{{ timeslot.title[page.lang] | default: timeslot.title }}</h5>
                   {% endif %}
 
-                  {# Speaker (live i18n if provided) #}
+                  <!-- Speaker (live i18n if provided) -->
                   {% if timeslot.speaker %}
                     {% if timeslot.speaker.fr and timeslot.speaker.en %}
                       <h5 class="m-0 i18n"
@@ -79,7 +77,7 @@ slide_id: 2
                     {% endif %}
                   {% endif %}
 
-                  {# Chair label + name (live i18n if provided) #}
+                  <!-- Chair label + name (live i18n if provided) -->
                   {% if timeslot.chair %}
                     <h6 class="m-0">
                       <span class="i18n"
@@ -88,9 +86,7 @@ slide_id: 2
                       {% if timeslot.chair.fr and timeslot.chair.en %}
                         <span class="i18n"
                               data-fr="{{ timeslot.chair.fr }}"
-                              data-en="{{ timeslot.chair.en }}">
-                          {{ timeslot.chair.fr }}
-                        </span>
+                              data-en="{{ timeslot.chair.en }}">{{ timeslot.chair.fr }}</span>
                       {% else %}
                         <span>{{ timeslot.chair[page.lang] | default: timeslot.chair }}</span>
                       {% endif %}
@@ -107,7 +103,7 @@ slide_id: 2
               <tr>
                 <td class="time-col" width="20%">&nbsp;</td>
                 <td>
-                  {# Event title (fallback-safe) #}
+                  <!-- Event title (fallback-safe) -->
                   <p class="mb-1">
                     {% if event.title and event.title.fr and event.title.en %}
                       <b class="i18n" data-fr="{{ event.title.fr }}" data-en="{{ event.title.en }}">
@@ -118,7 +114,7 @@ slide_id: 2
                     {% endif %}
                   </p>
 
-                  {# Event speakers (fallback-safe) #}
+                  <!-- Event speakers (fallback-safe) -->
                   {% if event.speakers %}
                     <p class="mb-0">
                       {% if event.speakers.fr and event.speakers.en %}
