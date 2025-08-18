@@ -8,34 +8,94 @@ slide_id: 2
 
     {% for day in site.data.schedule %}
     <div>
-      <h4 class="schedule-table-heading">{{ day.dateReadable[page.lang] }}</h4>
+      {%- comment -%} Day heading (live i18n) {%- endcomment -%}
+      <h4 class="schedule-table-heading i18n"
+          data-fr="{{ day.dateReadable.fr }}"
+          data-en="{{ day.dateReadable.en }}">
+        {{ day.dateReadable.fr }}
+      </h4>
 
       <table class="table table-bordered table-hover table-responsive table-sm schedule-table">
+
         {% for timeslot in day.timeslots %}
-          {% assign title_lc = timeslot.title[page.lang] | downcase %}
+          {%- comment -%}
+            Robust slot classification (FR + EN keywords)
+          {%- endcomment -%}
+          {% assign t_fr = timeslot.title.fr | default: timeslot.title | downcase %}
+          {% assign t_en = timeslot.title.en | default: timeslot.title | downcase %}
+
           {% assign slot_class = "bg-primary text-center" %}
           {% if timeslot.type == "service" %}
             {% assign slot_class = "bg-warning text-center" %}
           {% endif %}
-          {% if title_lc contains "coffee" or title_lc contains "break" %}
+
+          {%- comment -%} Coffee / Break keywords (fr/en) {%- endcomment -%}
+          {% if t_fr contains "pause" or t_fr contains "café" or t_en contains "coffee" or t_en contains "break" %}
             {% assign slot_class = "bg-coffee text-center" %}
           {% endif %}
-          {% if title_lc contains "lunch" or title_lc contains "diner" or title_lc contains "dinner" %}
+
+          {%- comment -%} Meal keywords (fr/en) {%- endcomment -%}
+          {% if t_fr contains "dîner" or t_fr contains "diner" or t_fr contains "repas" or t_en contains "lunch" or t_en contains "dinner" or t_en contains "meal" %}
             {% assign slot_class = "bg-meal text-center" %}
           {% endif %}
 
           <thead>
             <tr>
-              <th class="time-header">
-                <div>{{timeslot.startTime}}-{{timeslot.endTime}}</div>
-              </th>
+              <th class="time-header"><div>{{ timeslot.startTime }}-{{ timeslot.endTime }}</div></th>
               <th class="{{ slot_class }}">
                 {% if timeslot.type == "service" %}
-                  <p class="text-muted m-0">{{ timeslot.title[page.lang] }}</p>
+                  {# Service row title (live i18n if provided, else FR fallback) #}
+                  {% if timeslot.title.fr and timeslot.title.en %}
+                    <p class="text-muted m-0 i18n"
+                       data-fr="{{ timeslot.title.fr }}"
+                       data-en="{{ timeslot.title.en }}">
+                      {{ timeslot.title.fr }}
+                    </p>
+                  {% else %}
+                    <p class="text-muted m-0">{{ timeslot.title[page.lang] | default: timeslot.title }}</p>
+                  {% endif %}
                 {% else %}
-                  <h5 class="m-0">{{ timeslot.title[page.lang] }}</h5>
-                  {% if timeslot.speaker %}<h5 class="m-0">{{ timeslot.speaker[page.lang] }}</h5>{% endif %}
-                  {% if timeslot.chair %}<h6 class="m-0">Session chair: {{ timeslot.chair[page.lang] }}</h6>{% endif %}
+                  {# Regular session title (live i18n if provided) #}
+                  {% if timeslot.title.fr and timeslot.title.en %}
+                    <h5 class="m-0 i18n"
+                        data-fr="{{ timeslot.title.fr }}"
+                        data-en="{{ timeslot.title.en }}">
+                      {{ timeslot.title.fr }}
+                    </h5>
+                  {% else %}
+                    <h5 class="m-0">{{ timeslot.title[page.lang] | default: timeslot.title }}</h5>
+                  {% endif %}
+
+                  {# Speaker (live i18n if provided) #}
+                  {% if timeslot.speaker %}
+                    {% if timeslot.speaker.fr and timeslot.speaker.en %}
+                      <h5 class="m-0 i18n"
+                          data-fr="{{ timeslot.speaker.fr }}"
+                          data-en="{{ timeslot.speaker.en }}">
+                        {{ timeslot.speaker.fr }}
+                      </h5>
+                    {% else %}
+                      <h5 class="m-0">{{ timeslot.speaker[page.lang] | default: timeslot.speaker }}</h5>
+                    {% endif %}
+                  {% endif %}
+
+                  {# Chair label + name (live i18n if provided) #}
+                  {% if timeslot.chair %}
+                    <h6 class="m-0">
+                      <span class="i18n"
+                            data-fr="Présidence de séance :"
+                            data-en="Session chair:">Présidence de séance :</span>
+                      {% if timeslot.chair.fr and timeslot.chair.en %}
+                        <span class="i18n"
+                              data-fr="{{ timeslot.chair.fr }}"
+                              data-en="{{ timeslot.chair.en }}">
+                          {{ timeslot.chair.fr }}
+                        </span>
+                      {% else %}
+                        <span>{{ timeslot.chair[page.lang] | default: timeslot.chair }}</span>
+                      {% endif %}
+                    </h6>
+                  {% endif %}
                 {% endif %}
               </th>
             </tr>
@@ -47,13 +107,35 @@ slide_id: 2
               <tr>
                 <td class="time-col" width="20%">&nbsp;</td>
                 <td>
-                  <p class="mb-1"><b>{{event.title}}</b></p>
-                  <p class="mb-0"><i>{{event.speakers}}</i></p>
+                  {# Event title (fallback-safe) #}
+                  <p class="mb-1">
+                    {% if event.title and event.title.fr and event.title.en %}
+                      <b class="i18n" data-fr="{{ event.title.fr }}" data-en="{{ event.title.en }}">
+                        {{ event.title.fr }}
+                      </b>
+                    {% else %}
+                      <b>{{ event.title[page.lang] | default: event.title }}</b>
+                    {% endif %}
+                  </p>
+
+                  {# Event speakers (fallback-safe) #}
+                  {% if event.speakers %}
+                    <p class="mb-0">
+                      {% if event.speakers.fr and event.speakers.en %}
+                        <i class="i18n" data-fr="{{ event.speakers.fr }}" data-en="{{ event.speakers.en }}">
+                          {{ event.speakers.fr }}
+                        </i>
+                      {% else %}
+                        <i>{{ event.speakers[page.lang] | default: event.speakers }}</i>
+                      {% endif %}
+                    </p>
+                  {% endif %}
                 </td>
               </tr>
             {% endfor %}
           </tbody>
           {% endif %}
+
         {% endfor %}
       </table>
     </div>
