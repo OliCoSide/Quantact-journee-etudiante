@@ -1,4 +1,7 @@
 <head>
+
+  <script src="{{ '/assets/js/lang.js' | relative_url }}" defer></script>
+
   {% assign C = site.data.conference %}
   {% assign lang = page.lang | default: C.default_language %}
 
@@ -30,3 +33,4 @@
     {% include google-analytics.html %}
   {% endif %}
 </head>
+
