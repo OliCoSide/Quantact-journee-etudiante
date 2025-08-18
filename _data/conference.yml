@@ -24,7 +24,7 @@ languages:
 default_language: fr
 
 slideshow:
-  - image_path: /assets/images/
+  - image_path: /assets/images/slideshow/
 
 
 navbar:
