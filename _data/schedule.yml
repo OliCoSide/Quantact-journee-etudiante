@@ -46,11 +46,11 @@
         fr: "Bloc Concordia: À déterminer"
         en: "Concordia Block: TBD"
       speaker:
-        fr: "À déterminer"
-        en: "TBD"
-      chair:
         fr: "Criscent Birungi"
         en: "Criscent Birungi"
+      chair:
+        fr: "Samaneh Sami Kermani"
+        en: "Samaneh Sami Kermani"
 
     - startTime: "12:00"
       endTime: "13:30"

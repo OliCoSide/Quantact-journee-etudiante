@@ -133,8 +133,8 @@ footer {
     font-size: 80%;
 }
 
-.navbar-inverse .navbar-nav  > li > a:hover { color: #5393c5 !important; }
-.navbar-inverse .navbar-nav  > .active { color: #5393c5 !important; }
+.navbar-inverse .navbar-nav  > li > a:hover { color: #78a9ce !important; }
+.navbar-inverse .navbar-nav  > .active { color: #78a9ce !important; }
 
 /* Neutralize Bootstrap blues/yellows inside the schedule only */
 .schedule-table thead th.bg-primary,
