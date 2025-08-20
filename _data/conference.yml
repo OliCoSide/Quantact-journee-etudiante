@@ -88,12 +88,15 @@ social_media:
   twitter_link:
 
 program_chair:
-  - name: Olivier Côté
-    org: Université Laval
-    homepage: https://olicoside.github.io/
+  - name: Ahanhanzo Maurin
+    org: Université du Québec à Montréal
+    homepage: 
   - name: Iro René Kouarfate
     org: Université de Sherbrooke
     homepage: 
+  - name: Olivier Côté
+    org: Université Laval
+    homepage: https://olicoside.github.io/
   - name: Samaneh Sami Kermani
     org: Concordia University
     homepage: 
