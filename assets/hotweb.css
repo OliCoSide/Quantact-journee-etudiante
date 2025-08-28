@@ -188,14 +188,14 @@ footer {
 }
 
 .bg-keynote {
-  background-color: #6a9ae9 !important; /* Bright bootstrap blue */
-  color: #1B3857 !important;
-  border: 2px solid #1B3857;
+  background-color: #87aeec !important; /* Bright bootstrap blue */
+  color: #142a42 !important;
+  border: 2px solid #142a42;
    text-align: center;
 } 
 .bg-keynote h5,
 .bg-keynote h6 {
-  color: #1B3857 !important;
+  color: #142a42 !important;
 }
 
 /* =========================
