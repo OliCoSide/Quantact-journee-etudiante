@@ -191,6 +191,11 @@ footer {
   background-color: #6a9ae9 !important; /* Bright bootstrap blue */
   color: #1B3857 !important;
   border: 2px solid #1B3857;
+   text-align: center;
+} 
+.bg-keynote h5,
+.bg-keynote h6 {
+  color: #1B3857 !important;
 }
 
 /* =========================
