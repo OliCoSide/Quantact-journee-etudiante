@@ -294,3 +294,32 @@ footer {
 /* Optional: compact size (use class "lang-toggle sm") */
 .lang-toggle.sm{ --pill-h:32px; --pill-w:92px; font-size:.85rem; }
 
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.9);
+  text-align: center;
+  padding: 2em;
+}
+.lightbox:target {
+  display: block;
+}
+.lightbox img.lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 2em;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.lightbox-close:hover {
+  color: #ccc;
+}

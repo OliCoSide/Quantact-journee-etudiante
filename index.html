@@ -18,20 +18,29 @@ slide_id: 0
         La journée étudiante Quantact 2025 aura lieu le 3 octobre 2025 à l'Université Laval.
       </p>
 
-        <!--######### Affiche Visuelle / Visual Poster ##########-->
     <div class="text-center">
-      <a href="/Quantact-journee-etudiante/assets/pdfs/journee_etudiante_quantact_prod.pdf" target="_blank">
-        <img src="/Quantact-journee-etudiante/assets/pdfs/journee_etudiante_quantact_prod.jpg"
-            alt="Aperçu de l'affiche"
-            class="img-fluid"
-            style="max-width: 300px; border: 1px solid #ccc;" />
-      </a>
-      <p class="small text-muted mt-2 i18n"
-        data-fr="Cliquez sur l'affiche pour la visualiser en plein écran."
-        data-en="Click the poster to view it full screen.">
-        Cliquez sur l'affiche pour la visualiser en plein écran.
-      </p>
-    </div>
+  <a href="#poster-lightbox">
+    <img src="/Quantact-journee-etudiante/assets/journee_etudiante_quantact_prod.jpg"
+         alt="Aperçu de l'affiche"
+         class="img-fluid"
+         style="max-width: 300px; border: 1px solid #ccc;" />
+  </a>
+
+  <p class="small text-muted mt-2 i18n"
+     data-fr="Cliquez sur l'affiche pour l'agrandir."
+     data-en="Click the poster to enlarge it.">
+    Cliquez sur l'affiche pour l'agrandir.
+  </p>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="poster-lightbox" class="lightbox">
+  <a href="#" class="lightbox-close">✕</a>
+  <img src="/Quantact-journee-etudiante/assets/journee_etudiante_quantact_prod.jpg"
+       alt="Affiche en plein écran"
+       class="lightbox-img" />
+</div>
+
 
     <p class="i18n"
        data-fr="Les présentations couvriront les initiatives de recherche en actuariat des universités affiliées à Quantact:"
