@@ -11,13 +11,12 @@
 
     - startTime: "9:15"
       endTime: "10:00"
-      type: "service"
       title:
         fr: "Keynote speaker"
         en: "Conférence pléniaire"
       speaker:
-        fr: "Annouced later"
-        en: "Annoncé plus tard"
+        fr: "Annoncé plus tard"
+        en: "Announced later"
       chair:
         fr: "Comité d'Organization"
         en: "Organizing comittee"

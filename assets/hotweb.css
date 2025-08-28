@@ -187,6 +187,19 @@ footer {
   margin-bottom: 0.25rem;
 }
 
+.bg-keynote {
+  background-color: #007bff !important; /* Bright bootstrap blue */
+  color: #fff !important;
+  text-align: center;
+  border: 2px solid #0056b3;
+  padding: 1rem;
+}
+.bg-keynote h5,
+.bg-keynote h6 {
+  color: #fff !important;
+}
+
+
 /* =========================
    Language toggle (FR / EN)
    ========================= */
