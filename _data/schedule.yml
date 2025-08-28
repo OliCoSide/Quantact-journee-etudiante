@@ -12,11 +12,11 @@
     - startTime: "9:15"
       endTime: "10:00"
       title:
-        fr: "Keynote speaker"
-        en: "Conférence pléniaire"
+        fr: "Conférence pléniaire"
+        en: "Keynote speaker"
       speaker:
-        fr: "Annoncé plus tard"
-        en: "Announced later"
+        fr: "Personne présentatrice annoncée plus tard"
+        en: "Speaker announced later"
       chair:
         fr: "Comité d'Organization"
         en: "Organizing comittee"
