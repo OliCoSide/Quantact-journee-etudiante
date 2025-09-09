@@ -30,25 +30,25 @@
     - startTime: "10:30"
       endTime: "11:05"
       title:
-        fr: "Bloc UQAM: À déterminer"
-        en: "UQAM Block: TBD"
+        fr: "Modelling the impacts of climate change on deaths caused by heat and cold waves with age-period-cohort models"
+        en: "Modelling the impacts of climate change on deaths caused by heat and cold waves with age-period-cohort models"
       speaker:
-        fr: "Thomas Landry"
-        en: "Thomas Landry"
+        fr: "Thomas Landry (UQÀM)"
+        en: "Thomas Landry (UQÀM)"
       chair:
-        fr: "Ahanhanzo Maurin"
-        en: "Ahanhanzo Maurin"
+        fr: "Ahanhanzo Maurin (UQÀM)"
+        en: "Ahanhanzo Maurin (UQÀM)"
     - startTime: "11:05"
       endTime: "11:40"
       title:
-        fr: "Bloc Concordia: Optimal annuitization with labor income under age-dependent force of mortality"
-        en: "Concordia Block: Optimal annuitization with labor income under age-dependent force of mortality"
+        fr: "Optimal annuitization with labor income under age-dependent force of mortality"
+        en: "Optimal annuitization with labor income under age-dependent force of mortality"
       speaker:
-        fr: "Criscent Birungi"
-        en: "Criscent Birungi"
+        fr: "Criscent Birungi (Concordia)"
+        en: "Criscent Birungi (Concordia)"
       chair:
-        fr: "Samaneh Sami Kermani"
-        en: "Samaneh Sami Kermani"
+        fr: "Samaneh Sami Kermani (Concordia)"
+        en: "Samaneh Sami Kermani (Concordia)"
 
     - startTime: "11:45"
       endTime: "13:15"
@@ -60,23 +60,23 @@
     - startTime: "13:15"
       endTime: "13:50"
       title:
-        fr: "Bloc UdeS: À déterminer"
-        en: "UdeS Block: TBD"
+        fr: "Tarification des options américaines sur un ordinateur quantique"
+        en: "Tarification des options américaines sur un ordinateur quantique"
       speaker:
-        fr: "Julie Bélanger"
-        en: "Julie Bélanger"
+        fr: "Julie Bélanger (UdeS)"
+        en: "Julie Bélanger (UdeS)"
       chair:
-        fr: "Iro René Kouarfate"
-        en: "Iro René Kouarfate"
+        fr: "Iro René Kouarfate (UdeS)"
+        en: "Iro René Kouarfate (UdeS)"
 
     - startTime: "13:50"
       endTime: "14:25"
       title:
-        fr: "Bloc HEC: À déterminer"
-        en: "HEC Block: TBD"
+        fr: "Beyond volatility of volatility: Decomposing the informational content of VVIX"
+        en: "Beyond volatility of volatility: Decomposing the informational content of VVIX"
       speaker:
-        fr: "Étienne Bacon"
-        en: "Étienne Bacon"
+        fr: "Étienne Bacon (HEC Montréal)"
+        en: "Étienne Bacon (HEC Montréal)"
       chair:
         fr: "À déterminer"
         en: "TBD"
@@ -91,26 +91,26 @@
     - startTime: "14:55"
       endTime: "15:30"
       title:
-        fr: "Bloc UdeM: Modeling Fixed Income Funds and Option Pricing: A Yield Curve-Driven Approach"
-        en: "UdeM Block: Modeling Fixed Income Funds and Option Pricing: A Yield Curve-Driven Approach"
+        fr: "Modeling Fixed Income Funds and Option Pricing: A Yield Curve-Driven Approach"
+        en: "Modeling Fixed Income Funds and Option Pricing: A Yield Curve-Driven Approach"
       speaker:
-        fr: "Wuding Li"
-        en: "Wuding Li"
+        fr: "Wuding Li (UdeM)"
+        en: "Wuding Li (UdeM)"
       chair:
-        fr: "Olivier Poulin"
-        en: "Olivier Poulin"
+        fr: "Olivier Poulin (UdeM)"
+        en: "Olivier Poulin (UdeM)"
     
     - startTime: "15:30"
       endTime: "16:05"
       title:
-        fr: "Bloc U. Laval: Titre à venir"
-        en: "Université Laval Block: Title forthcoming"
+        fr: "Optimal Investment and Entropy-Regularized Learning Under Stochastic Volatility Models with Portfolio Constraints"
+        en: "Optimal Investment and Entropy-Regularized Learning Under Stochastic Volatility Models with Portfolio Constraints"
       speaker:
-        fr: "Pertiny Wilfried Nkuize Ketchiekmen"
-        en: "Pertiny Wilfried Nkuize Ketchiekmen"
+        fr: "Pertiny Wilfried Nkuize Ketchiekmen (U. Laval)"
+        en: "Pertiny Wilfried Nkuize Ketchiekmen (U. Laval)"
       chair:
-        fr: "Olivier Côté"
-        en: "Olivier Côté"
+        fr: "Olivier Côté (U. Laval)"
+        en: "Olivier Côté (U. Laval)"
 
     - startTime: "16:05"
       endTime: "18:00"
