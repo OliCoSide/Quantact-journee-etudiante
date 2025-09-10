@@ -12,11 +12,11 @@
     - startTime: "9:15"
       endTime: "10:00"
       title:
-        fr: "Conférence pléniaire"
-        en: "Keynote speaker"
+        fr: "From Black Box To Glass Box: Enhancing Actuarial Models With GA2Ms"
+        en: "From Black Box To Glass Box: Enhancing Actuarial Models With GA2Ms"
       speaker:
-        fr: "Personne présentatrice annoncée plus tard"
-        en: "Speaker announced later"
+        fr: "Philippe Meunier, FCAS"
+        en: "Philippe Meunier, FCAS"
       chair:
         fr: "Comité d'Organization"
         en: "Organizing comittee"
