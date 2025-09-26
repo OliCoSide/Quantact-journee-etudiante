@@ -12,8 +12,8 @@
     - startTime: "10:00"
       endTime: "10:45"
       title:
-        fr: "From Black Box To Glass Box: Enhancing Actuarial Models With GA2Ms"
-        en: "From Black Box To Glass Box: Enhancing Actuarial Models With GA2Ms"
+        fr: "From black box To glass box: enhancing actuarial models with GA2Ms"
+        en: "From black box To glass box: enhancing actuarial models with GA2Ms"
       speaker:
         fr: "Philippe Meunier, FCAS"
         en: "Philippe Meunier, FCAS"
@@ -84,7 +84,6 @@
       chair:
         fr: "À déterminer"
         en: "TBD"
-
 
     - startTime: "15:45"
       endTime: "16:20"
