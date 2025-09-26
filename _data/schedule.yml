@@ -3,14 +3,14 @@
     fr: "3 Octobre 2025"
     en: "October 3, 2025"
   timeslots:
-    - startTime: "8:45"
-      endTime: "9:15"
+    - startTime: "9:15"
+      endTime: "10:00"
       title:
         fr: "Accueil & mot de bienvenue"
         en: "Welcome & Opening Remarks"
 
-    - startTime: "9:15"
-      endTime: "10:00"
+    - startTime: "10:00"
+      endTime: "10:45"
       title:
         fr: "From Black Box To Glass Box: Enhancing Actuarial Models With GA2Ms"
         en: "From Black Box To Glass Box: Enhancing Actuarial Models With GA2Ms"
@@ -18,17 +18,17 @@
         fr: "Philippe Meunier, FCAS"
         en: "Philippe Meunier, FCAS"
       chair:
-        fr: "Comité d'Organization"
-        en: "Organizing comittee"
+        fr: "Comité d'organisation"
+        en: "Organizing committee"
 
-    - startTime: "10:00"
-      endTime: "10:30"
+    - startTime: "10:45"
+      endTime: "11:15"
       type: "service"
       title:
         fr: "Pause café (matin)"
         en: "Coffee Break (morning)"
-    - startTime: "10:30"
-      endTime: "11:05"
+    - startTime: "11:15"
+      endTime: "11:50"
       title:
         fr: "Modelling the impacts of climate change on deaths caused by heat and cold waves with age-period-cohort models"
         en: "Modelling the impacts of climate change on deaths caused by heat and cold waves with age-period-cohort models"
@@ -38,8 +38,14 @@
       chair:
         fr: "Ahanhanzo Maurin (UQÀM)"
         en: "Ahanhanzo Maurin (UQÀM)"
-    - startTime: "11:05"
-      endTime: "11:40"
+    - startTime: "12:00"
+      endTime: "13:30"
+      type: "service"
+      title:
+        fr: "Dîner"
+        en: "Lunch"
+    - startTime: "13:30"
+      endTime: "14:05"
       title:
         fr: "Optimal annuitization with labor income under age-dependent force of mortality"
         en: "Optimal annuitization with labor income under age-dependent force of mortality"
@@ -49,16 +55,8 @@
       chair:
         fr: "Samaneh Sami Kermani (Concordia)"
         en: "Samaneh Sami Kermani (Concordia)"
-
-    - startTime: "11:45"
-      endTime: "13:15"
-      type: "service"
-      title:
-        fr: "Dîner"
-        en: "Lunch"
-
-    - startTime: "13:15"
-      endTime: "13:50"
+    - startTime: "14:05"
+      endTime: "14:40"
       title:
         fr: "Tarification des options américaines sur un ordinateur quantique"
         en: "Tarification des options américaines sur un ordinateur quantique"
@@ -68,9 +66,15 @@
       chair:
         fr: "Iro René Kouarfate (UdeS)"
         en: "Iro René Kouarfate (UdeS)"
+    - startTime: "14:40"
+      endTime: "15:10"
+      type: "service"
+      title:
+        fr: "Pause café (après-midi)"
+        en: "Coffee Break (afternoon)"
 
-    - startTime: "13:50"
-      endTime: "14:25"
+    - startTime: "15:10"
+      endTime: "15:45"
       title:
         fr: "Beyond volatility of volatility: Decomposing the informational content of VVIX"
         en: "Beyond volatility of volatility: Decomposing the informational content of VVIX"
@@ -81,15 +85,9 @@
         fr: "À déterminer"
         en: "TBD"
 
-    - startTime: "14:25"
-      endTime: "14:55"
-      type: "service"
-      title:
-        fr: "Pause café (après-midi)"
-        en: "Coffee Break (afternoon)"
 
-    - startTime: "14:55"
-      endTime: "15:30"
+    - startTime: "15:45"
+      endTime: "16:20"
       title:
         fr: "Modeling Fixed Income Funds and Option Pricing: A Yield Curve-Driven Approach"
         en: "Modeling Fixed Income Funds and Option Pricing: A Yield Curve-Driven Approach"
@@ -100,8 +98,8 @@
         fr: "Olivier Poulin (UdeM)"
         en: "Olivier Poulin (UdeM)"
     
-    - startTime: "15:30"
-      endTime: "16:05"
+    - startTime: "16:20"
+      endTime: "16:55"
       title:
         fr: "Optimal Investment and Entropy-Regularized Learning Under Stochastic Volatility Models with Portfolio Constraints"
         en: "Optimal Investment and Entropy-Regularized Learning Under Stochastic Volatility Models with Portfolio Constraints"
@@ -112,7 +110,7 @@
         fr: "Olivier Côté (U. Laval)"
         en: "Olivier Côté (U. Laval)"
 
-    - startTime: "16:05"
+    - startTime: "17:00"
       endTime: "18:00"
       type: "service"
       title:
